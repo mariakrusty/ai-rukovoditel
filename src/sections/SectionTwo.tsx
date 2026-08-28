@@ -31,32 +31,32 @@ const PAIRS: { was: string; now: string }[] = [
 export default function SectionTwo() {
   return (
     <section id="pairs" className="relative flex flex-col">
-      <div className="relative flex flex-col gap-10 px-5 py-16 sm:flex-row sm:items-start sm:justify-between sm:gap-8 sm:px-8 sm:py-20 md:px-12">
+      <div className="relative flex flex-col gap-10 px-5 py-12 sm:flex-row sm:items-start sm:justify-between sm:gap-8 sm:px-8 sm:py-16 md:px-12">
         <div className="flex flex-col gap-8 sm:max-w-sm">
-          <Reveal delay={60}>
+          <Reveal static delay={60}>
             <div className="font-mono text-xs uppercase tracking-[0.14em] text-white/60 drop-shadow-md">
               — Как заработать больше? Как сэкономить?
             </div>
           </Reveal>
 
           <h2 className="font-display text-3xl font-bold uppercase leading-[1.14] tracking-tight text-white drop-shadow-lg sm:text-4xl md:text-5xl">
-            <Reveal as="span" delay={100} className="block">
+            <Reveal static as="span" delay={100} className="block">
               По цифрам,
             </Reveal>
-            <Reveal as="span" delay={220} className="block">
+            <Reveal static as="span" delay={220} className="block">
               а не{' '}
               <span className="font-sans font-light normal-case italic tracking-normal">на глазок</span>
             </Reveal>
           </h2>
 
-          <Reveal delay={340}>
+          <Reveal static delay={340}>
             <div className="flex items-center justify-between font-mono text-white sm:justify-start sm:gap-16 md:gap-24">
               <span className="text-lg">( B )</span>
               <span className="text-xs text-white/70">[ 002 /004 ]</span>
             </div>
           </Reveal>
 
-          <Reveal delay={420}>
+          <Reveal static delay={420}>
             <p className="max-w-xs text-base leading-relaxed text-white/85 drop-shadow-md sm:text-sm">
               Слева — магазин, который живёт на ощущениях. Справа — тот же
               магазин после курса: где переплачиваем, где теряем, где

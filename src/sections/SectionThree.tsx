@@ -51,28 +51,28 @@ const CREW = [
 export default function SectionThree() {
   return (
     <section id="assistants" className="relative flex flex-col">
-      <div className="relative flex flex-col gap-8 px-5 py-16 sm:px-8 sm:py-20 md:px-12">
+      <div className="relative flex flex-col gap-8 px-5 py-12 sm:px-8 sm:py-16 md:px-12">
         <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
           <div className="flex flex-col gap-5">
-            <Reveal delay={60}>
+            <Reveal static delay={60}>
               <div className="font-mono text-xs uppercase tracking-[0.14em] text-white/60 drop-shadow-md">
                 — Как тратить меньше времени?
               </div>
             </Reveal>
             <h2 className="font-display max-w-md text-3xl font-bold uppercase leading-[1.14] tracking-tight text-white drop-shadow-lg sm:text-4xl md:text-5xl">
-              <Reveal as="span" delay={100} className="block">
+              <Reveal static as="span" delay={100} className="block">
                 Шесть{' '}
                 <span className="font-sans font-light normal-case italic tracking-normal">
                   своих
                 </span>
               </Reveal>
-              <Reveal as="span" delay={220} className="block pl-8 sm:pl-16">
+              <Reveal static as="span" delay={220} className="block pl-8 sm:pl-16">
                 Помощников
               </Reveal>
             </h2>
           </div>
 
-          <Reveal delay={340}>
+          <Reveal static delay={340}>
             <div className="flex items-center gap-16 font-mono text-white md:gap-24">
               <span className="text-lg">( C )</span>
               <span className="text-xs text-white/70">[ 003 /004 ]</span>
@@ -80,7 +80,7 @@ export default function SectionThree() {
           </Reveal>
         </div>
 
-        <Reveal delay={160}>
+        <Reveal static delay={160}>
           <div className="flex max-w-2xl flex-col gap-3">
             <p className="text-base leading-relaxed text-white/85 drop-shadow-md sm:text-sm">
               В крупном цветочном бизнесе эти задачи распределены между

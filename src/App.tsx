@@ -24,11 +24,8 @@ export default function App() {
       <Navbar />
       <main>
         <SectionOne />
-        <div aria-hidden className="h-[180px] sm:h-[38vh]" />
         <SectionTwo />
-        <div aria-hidden className="h-[140px] sm:h-[26vh]" />
         <SectionThree />
-        <div aria-hidden className="h-[140px] sm:h-[26vh]" />
         <SectionFour />
       </main>
     </div>

@@ -120,14 +120,14 @@ function AssistantFeed() {
   const msg = deck[index]
 
   return (
-    <div className="w-full rounded-2xl rounded-tl-md border border-white/20 bg-black/60 p-4 backdrop-blur-sm">
+    <div className="w-full rounded-2xl rounded-tl-md border border-white/20 bg-black/60 p-4 backdrop-blur-sm short:p-3">
       {/* key перезапускает анимацию входа на каждом сообщении */}
       <div key={index} className="msg-enter">
         <div className="mb-2 flex items-center justify-between font-mono text-[10px] uppercase tracking-[0.12em] text-white/50">
           <span>{msg.from}</span>
           <span>{msg.time}</span>
         </div>
-        <p className="min-h-[7.5rem] font-mono text-base leading-relaxed text-white sm:min-h-[6.75rem] sm:text-sm">
+        <p className="min-h-[7.5rem] font-mono text-base leading-relaxed text-white sm:min-h-[6.75rem] sm:text-sm short:min-h-[5.5rem] short:leading-snug">
           {msg.text}
         </p>
         <div className="mt-3 flex items-center gap-2">
@@ -159,9 +159,9 @@ export default function SectionOne() {
       id="main"
       className="relative flex min-h-screen flex-col justify-end supports-[height:100svh]:min-h-[100svh]"
     >
-      <div className="relative flex flex-col gap-6 px-5 pb-14 pt-20 sm:flex-row sm:items-end sm:justify-between sm:gap-8 sm:px-8 sm:pt-0 md:px-12 md:pb-20">
+      <div className="relative flex flex-col gap-6 px-5 pb-14 pt-20 sm:flex-row sm:items-end sm:justify-between sm:gap-8 sm:px-8 sm:pt-0 md:px-12 md:pb-20 short:pb-6">
         {/* Название продукта — первым, обещание — второй строкой */}
-        <h1 className="font-display max-w-3xl text-2xl font-bold uppercase leading-[1.16] tracking-tight text-white drop-shadow-lg sm:text-4xl md:text-5xl">
+        <h1 className="font-display max-w-3xl text-2xl font-bold uppercase leading-[1.16] tracking-tight text-white drop-shadow-lg sm:text-4xl md:text-5xl short:text-4xl short:leading-[1.1]">
           <Reveal as="span" delay={100} className="block">
             AI-руководитель
           </Reveal>
@@ -184,9 +184,9 @@ export default function SectionOne() {
           </Reveal>
         </h1>
 
-        <div className="flex w-full max-w-sm flex-col items-start sm:mt-48">
+        <div className="flex w-full max-w-sm flex-col items-start sm:mt-48 short:mt-36">
           <Reveal delay={400} className="order-1 hidden w-full sm:order-none sm:block">
-            <div className="mb-5 flex w-full items-center justify-between font-mono text-white sm:mb-7">
+            <div className="mb-5 flex w-full items-center justify-between font-mono text-white sm:mb-7 short:mb-3">
               <span className="text-lg">( A )</span>
               <span className="text-xs text-white/70">[ 001 /004 ]</span>
             </div>
@@ -194,7 +194,7 @@ export default function SectionOne() {
 
           {/* Что это и для кого — сразу, до примера */}
           <Reveal delay={480} className="order-2 w-full sm:order-none">
-            <p className="mb-4 hidden text-base leading-relaxed text-white drop-shadow-md sm:block sm:text-sm">
+            <p className="mb-4 hidden text-base leading-relaxed text-white drop-shadow-md sm:block sm:text-sm short:mb-2">
               За 9 уроков вы соберёте шесть AI-помощников для ассортимента,
               закупки, денег, продаж, команды и процессов — и будете принимать
               решения по данным, а не по интуиции.
@@ -206,7 +206,7 @@ export default function SectionOne() {
           </Reveal>
 
           <Reveal delay={540} className="order-3 w-full sm:order-none">
-            <p className="mb-4 text-[13px] leading-relaxed text-white/70 drop-shadow-md sm:mb-6">
+            <p className="mb-4 text-[13px] leading-relaxed text-white/70 drop-shadow-md sm:mb-6 short:mb-3">
               Подходит офлайн-магазинам, интернет-магазинам и смешанному
               формату: мы работаем не с сайтом или витриной, а с управленческими
               данными — продажами по каналам, обращениями, остатками, закупками
@@ -219,11 +219,11 @@ export default function SectionOne() {
               href={SIGNUP_URL}
               target="_blank"
               rel="noreferrer"
-              className="mb-6 block w-full rounded-full bg-[#45C1FF] text-[#04131F] shadow-[0_0_16px_rgba(69,193,255,0.9),0_0_48px_rgba(69,193,255,0.45)] hover:bg-[#7AD4FF] hover:shadow-[0_0_22px_rgba(122,212,255,1),0_0_64px_rgba(122,212,255,0.6)] px-8 py-3.5 text-center font-mono text-xs font-semibold uppercase tracking-[0.15em] transition-all duration-300 sm:mb-7"
+              className="mb-6 block w-full rounded-full bg-[#45C1FF] text-[#04131F] shadow-[0_0_16px_rgba(69,193,255,0.9),0_0_48px_rgba(69,193,255,0.45)] hover:bg-[#7AD4FF] hover:shadow-[0_0_22px_rgba(122,212,255,1),0_0_64px_rgba(122,212,255,0.6)] px-8 py-3.5 text-center font-mono text-xs font-semibold uppercase tracking-[0.15em] transition-all duration-300 sm:mb-7 short:mb-2"
             >
               Записаться на курс
             </a>
-            <div className="-mt-4 mb-5 text-center font-mono text-[10px] uppercase tracking-[0.14em] text-[#7AD4FF] drop-shadow-md sm:-mt-5 sm:mb-6 sm:text-[11px]">
+            <div className="-mt-4 mb-5 text-center font-mono text-[10px] uppercase tracking-[0.14em] text-[#7AD4FF] drop-shadow-md sm:-mt-5 sm:mb-6 sm:text-[11px] short:-mt-1 short:mb-3">
               [ старт — 5 октября 2026, 11:00 мск ]
             </div>
           </Reveal>

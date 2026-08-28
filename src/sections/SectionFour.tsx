@@ -185,15 +185,15 @@ function Field({ label, children }: { label: string; children: string }) {
 export default function SectionFour() {
   return (
     <section id="season" className="relative flex flex-col">
-      <div className="relative mx-auto flex w-full max-w-[1340px] flex-col gap-6 px-5 py-12 sm:gap-10 sm:px-8 sm:py-20 md:px-12">
+      <div className="relative mx-auto flex w-full max-w-[1340px] flex-col gap-6 px-5 py-12 sm:gap-10 sm:px-8 sm:py-16 md:px-12">
         {/* верхняя строка: вопрос слева, счётчик справа */}
         <div className="flex items-baseline justify-between gap-4">
-          <Reveal delay={60}>
+          <Reveal static delay={60}>
             <div className="font-mono text-xs uppercase tracking-[0.14em] text-white/60 drop-shadow-md">
               — С чего начать?
             </div>
           </Reveal>
-          <Reveal delay={100}>
+          <Reveal static delay={100}>
             <div className="flex items-center gap-8 font-mono text-white sm:gap-16">
               <span className="text-lg">( D )</span>
               <span className="text-xs text-white/70">[ 004 /004 ]</span>
@@ -204,7 +204,7 @@ export default function SectionFour() {
         {/* симметричная формула: 09 → 10, ниже — 6 ролей */}
         <div className="flex flex-col gap-5">
           <div className="flex items-end justify-between gap-4 sm:gap-8">
-            <Reveal delay={140}>
+            <Reveal static delay={140}>
               <div className="flex flex-col gap-1">
                 <span className="font-display text-6xl font-bold leading-none tracking-tight text-white drop-shadow-lg sm:text-7xl md:text-8xl">
                   09
@@ -216,7 +216,7 @@ export default function SectionFour() {
             </Reveal>
 
             {/* линия-стрелка между числами */}
-            <Reveal delay={220} className="hidden flex-1 self-center sm:block">
+            <Reveal static delay={220} className="hidden flex-1 self-center sm:block">
               <div className="flex flex-col items-center gap-3 px-2">
                 <div className="relative h-px w-full bg-gradient-to-r from-white/10 via-white/35 to-[#45C1FF]/80">
                   <span className="absolute -right-1 top-1/2 h-2 w-2 -translate-y-1/2 rotate-45 border-r border-t border-[#45C1FF]" />
@@ -227,7 +227,7 @@ export default function SectionFour() {
               </div>
             </Reveal>
 
-            <Reveal delay={300}>
+            <Reveal static delay={300}>
               <div className="flex flex-col gap-1 text-right">
                 <span className="font-display text-6xl font-bold leading-none tracking-tight text-[#7AD4FF] drop-shadow-lg sm:text-7xl md:text-8xl">
                   10
@@ -240,7 +240,7 @@ export default function SectionFour() {
           </div>
 
           {/* мобильная версия связки */}
-          <Reveal delay={220} className="sm:hidden">
+          <Reveal static delay={220} className="sm:hidden">
             <div className="font-mono text-[11px] uppercase tracking-[0.16em] text-white/70">
               → закрывают 6 AI-помощников
             </div>
@@ -248,13 +248,13 @@ export default function SectionFour() {
 
           {/* почему чисел два — на виду, не в раскрытии */}
           <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between sm:gap-8">
-            <Reveal delay={340}>
+            <Reveal static delay={340}>
               <p className="max-w-xl text-base leading-relaxed text-white/85 drop-shadow-md sm:text-sm">
                 Девятимесячная программа внедрения. Один инструмент в месяц,
                 работа на данных своего магазина и поддержка между занятиями.
               </p>
             </Reveal>
-            <Reveal delay={380}>
+            <Reveal static delay={380}>
               <p className="max-w-sm text-base leading-relaxed text-white drop-shadow-md sm:text-right sm:text-sm">
                 Каждый урок начинается с вопроса собственника. Финансовый
                 закрывает сразу два: сколько заработали — и хватит ли
@@ -265,7 +265,7 @@ export default function SectionFour() {
         </div>
 
         {/* дуга сезона — на всю ширину, крупно */}
-        <Reveal delay={160}>
+        <Reveal static delay={160}>
           <p className="border-y border-white/15 py-5 text-base leading-relaxed text-white drop-shadow-md sm:text-lg">
             <span className="text-white/60">До высокого сезона</span> — товар,
             закупка и клиенты.{' '}
@@ -277,7 +277,7 @@ export default function SectionFour() {
           </p>
         </Reveal>
 
-        <Reveal delay={200}>
+        <Reveal static delay={200}>
           <div className="font-mono text-[11px] uppercase tracking-[0.12em] text-white/50 drop-shadow-md sm:text-xs">
             Старт — 5 октября 2026 · финал — 15 июня 2027 · один урок
             в месяц · июль и август — каникулы · нажмите на урок, чтобы
@@ -355,7 +355,7 @@ export default function SectionFour() {
               </p>
             </div>
           </Reveal>
-          <Reveal delay={140}>
+          <Reveal static delay={140}>
             <div className="flex h-full flex-col gap-3 border-t border-white/10 pt-5 sm:border-l sm:border-t-0 sm:pl-10 sm:pt-0">
               <div className="font-mono text-xs uppercase tracking-[0.14em] text-white/60">
                 Безопасность данных
@@ -387,7 +387,7 @@ export default function SectionFour() {
                 </span>
               </div>
             </Reveal>
-            <Reveal delay={160}>
+            <Reveal static delay={160}>
               <div className="flex flex-col gap-1">
                 <span className="font-mono text-sm text-[#7AD4FF]">30–60 минут</span>
                 <span className="text-base leading-relaxed text-white/80 sm:text-sm">
@@ -396,7 +396,7 @@ export default function SectionFour() {
                 </span>
               </div>
             </Reveal>
-            <Reveal delay={200}>
+            <Reveal static delay={200}>
               <div className="flex flex-col gap-1">
                 <span className="font-mono text-sm text-[#7AD4FF]">записи — год</span>
                 <span className="text-base leading-relaxed text-white/80 sm:text-sm">
@@ -437,7 +437,7 @@ export default function SectionFour() {
 
         {/* Итог курса — чек-лист, результат слева и запись справа */}
         <div id="itog" className="flex flex-col gap-5 rounded-2xl border border-white/10 bg-[#0c1118]/90 p-5 sm:p-6">
-          <Reveal delay={100}>
+          <Reveal static delay={100}>
             <div className="flex flex-wrap items-baseline justify-between gap-2 border-b border-white/10 pb-4">
               <div className="font-display text-lg font-bold uppercase tracking-tight text-white sm:text-xl">
                 Итог курса: система собрана
@@ -446,7 +446,7 @@ export default function SectionFour() {
             </div>
           </Reveal>
 
-          <Reveal delay={160}>
+          <Reveal static delay={160}>
             <p className="max-w-xl text-base leading-relaxed text-white/85 sm:text-sm">
               Участник заканчивает курс не папкой с десятью промптами,
               а работающей системой:
