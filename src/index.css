@@ -1,0 +1,46 @@
+@import './fonts.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* фирменный моноширинный — свой файл с кириллицей, как на mfandreeva.ru */
+@font-face {
+  font-family: 'ShareTechMono';
+  src: url('/fonts/ShareTechMono.ttf') format('truetype');
+  font-weight: 400;
+  font-display: swap;
+}
+
+body {
+  font-family: 'Onest', system-ui, sans-serif;
+  background-color: #0a0a0a;
+  color: #fff;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* аккордеон уроков */
+summary::-webkit-details-marker { display: none; }
+summary { list-style: none; cursor: pointer; }
+
+/* своя рамка фокуса для аккордеона вместо системной синей */
+summary:focus { outline: none; }
+summary:focus-visible {
+  outline: 1px solid rgba(255, 255, 255, 0.45);
+  outline-offset: 4px;
+  border-radius: 8px;
+}
+
+/* появление нового сообщения помощника */
+@keyframes msg-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.msg-enter { animation: msg-in 0.4s ease-out; }
+@media (prefers-reduced-motion: reduce) {
+  .msg-enter { animation: none; }
+}
