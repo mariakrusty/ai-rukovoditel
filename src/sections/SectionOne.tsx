@@ -11,7 +11,7 @@ export default function SectionOne() {
     >
       <div className="relative flex flex-col gap-6 px-5 pb-16 pt-20 sm:flex-row sm:items-end sm:justify-between sm:gap-8 sm:px-8 sm:pt-0 md:px-12 md:pb-20 short:pb-6">
         {/* Название продукта — первым, обещание — второй строкой */}
-        <h1 className="font-display max-w-3xl text-2xl font-bold uppercase leading-[1.16] tracking-tight text-white drop-shadow-lg sm:text-4xl md:text-5xl short:text-4xl short:leading-[1.1]">
+        <h1 className="font-display max-w-3xl text-[clamp(26px,7.2vw,36px)] font-bold uppercase leading-[1.14] tracking-tight text-white drop-shadow-lg sm:text-4xl md:text-5xl short:text-4xl short:leading-[1.1]">
           <Reveal as="span" delay={100} className="block">
             AI-руководитель
           </Reveal>
@@ -28,7 +28,7 @@ export default function SectionOne() {
           </Reveal>
           {/* одна короткая фраза о результате — только на телефоне */}
           <Reveal as="span" delay={340} className="mt-4 block sm:hidden">
-            <span className="font-mono text-[11px] font-normal uppercase tracking-[0.14em] text-[#7AD4FF]">
+            <span className="font-mono text-[13px] font-normal uppercase tracking-[0.12em] text-[#7AD4FF]">
               Меньше ручных таблиц · больше решений по прибыли
             </span>
           </Reveal>
@@ -69,7 +69,7 @@ export default function SectionOne() {
             >
               Записаться на курс
             </a>
-            <div className="-mt-4 mb-2 text-center font-mono text-[10px] uppercase tracking-[0.14em] text-[#7AD4FF] drop-shadow-md sm:-mt-5 sm:mb-6 sm:text-[11px] short:-mt-1 short:mb-3">
+            <div className="-mt-4 mb-2 text-center font-mono text-[11px] uppercase tracking-[0.14em] text-[#7AD4FF] drop-shadow-md sm:-mt-5 sm:mb-6 short:-mt-1 short:mb-3">
               [ старт — 5 октября 2026, 11:00 мск ]
             </div>
           </Reveal>
