@@ -120,7 +120,7 @@ export default function AssistantFeed() {
     <div className="w-full rounded-2xl rounded-tl-md border border-white/20 bg-black/60 p-4 backdrop-blur-sm short:p-3">
       {/* key перезапускает анимацию входа на каждом сообщении */}
       <div key={index} className="msg-enter">
-        <div className="mb-2 flex items-center justify-between font-mono text-[11px] uppercase tracking-[0.12em] text-white/50">
+        <div className="mb-2 flex items-center justify-between font-mono text-xs uppercase tracking-[0.12em] text-white/50">
           <span>{msg.from}</span>
           <span>{msg.time}</span>
         </div>
@@ -128,10 +128,10 @@ export default function AssistantFeed() {
           {msg.text}
         </p>
         <div className="mt-3 flex items-center gap-2">
-          <span className="rounded-full border border-white/40 px-4 py-1 font-mono text-[11px] uppercase tracking-[0.12em] text-white">
+          <span className="rounded-full border border-white/40 px-4 py-1 font-mono text-xs uppercase tracking-[0.12em] text-white">
             {msg.yes}
           </span>
-          <span className="rounded-full border border-white/15 px-4 py-1 font-mono text-[11px] uppercase tracking-[0.12em] text-white/50">
+          <span className="rounded-full border border-white/15 px-4 py-1 font-mono text-xs uppercase tracking-[0.12em] text-white/50">
             {msg.no}
           </span>
           <span className="ml-auto flex gap-1.5">

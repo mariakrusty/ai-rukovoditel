@@ -18,7 +18,7 @@
   --color-positive-signal: #7AD4FF; /* данные, решение AI, результат */
 }
 
-/* мобильный «режим чтения»: абзацы — Onest; десктоп — ShareTechMono (утверждён) */
+/* Onest — весь основной текст; ShareTechMono — только подписи через font-mono */
 body {
   font-family: 'Onest', system-ui, sans-serif;
   background-color: #0a0a0a;
@@ -26,10 +26,13 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-@media (min-width: 640px) {
-  body {
-    font-family: 'ShareTechMono', 'Onest', system-ui, monospace;
-  }
+/* появление активного кейса во вкладках сравнений */
+@keyframes caseIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.case-enter {
+  animation: caseIn 200ms ease-out;
 }
 
 ::selection {

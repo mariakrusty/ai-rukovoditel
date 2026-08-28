@@ -1,9 +1,7 @@
 import { Plus, Share2 } from 'lucide-react'
 import Reveal from '../components/Reveal'
-import { Neg, Pos } from '../components/Signals'
 
-// Карточки ролей. Первая строка — узнаваемая работа владельца,
-// «Матрица» — первым словом первого помощника.
+// Шесть помощников: закрытая строка + три смысловых блока в раскрытии.
 const CREW = [
   {
     n: '01',
@@ -12,8 +10,7 @@ const CREW = [
     lessons: 'уроки 1–3',
     salary: '130–200 тыс ₽/мес',
     short: 'закупка без переплат и списаний',
-    data: 'продажи, остатки и списания из учётной системы, прайсы поставщиков',
-    result: 'точный заказ: что, сколько и у кого покупать',
+    result: 'Точный заказ: что, сколько и у кого покупать',
   },
   {
     n: '02',
@@ -22,8 +19,7 @@ const CREW = [
     lessons: 'урок 6',
     salary: '170–190 тыс ₽/мес',
     short: 'прибыль и платёжный календарь',
-    data: 'выписки банков, кассы, платежи и счета',
-    result: 'видно, сколько заработали и хватит ли на платежи',
+    result: 'Видно, сколько заработали и хватит ли на платежи',
   },
   {
     n: '03',
@@ -32,8 +28,7 @@ const CREW = [
     lessons: 'уроки 4–5',
     salary: 'от 100 тыс ₽/мес',
     short: 'обращения, отказы, конверсия',
-    data: 'переписки и обращения по каналам, клиентская база',
-    result: 'видно, где теряются клиенты и выручка',
+    result: 'Видно, где теряются клиенты и выручка',
   },
   {
     n: '04',
@@ -42,8 +37,7 @@ const CREW = [
     lessons: 'урок 7',
     salary: '85–140 тыс ₽/мес',
     short: 'смены и квалификация',
-    data: 'продажи и результаты смен по сотрудникам',
-    result: 'понятно, кто как работает и кого чему учить',
+    result: 'Понятно, кто как работает и кого чему учить',
   },
   {
     n: '05',
@@ -52,8 +46,7 @@ const CREW = [
     lessons: 'урок 8',
     salary: null,
     short: 'регламенты и контроль',
-    data: 'как устроена работа магазина — процессы и правила',
-    result: 'магазин работает по написанному, а не по памяти владельца',
+    result: 'Магазин работает по написанному, а не по памяти владельца',
   },
   {
     n: '06',
@@ -62,15 +55,14 @@ const CREW = [
     lessons: 'урок 9',
     salary: null,
     short: 'единый управленческий отчёт',
-    data: 'наработки всех уроков: матрица, спрос, деньги, база, команда',
-    result: 'в одном месте видно, что происходит в магазине, какие показатели требуют внимания и какие решения необходимо принять',
+    result: 'В одном месте видно, что происходит в магазине, какие показатели требуют внимания и какие решения необходимо принять',
   },
 ]
 
 export default function SectionThree() {
   return (
     <section id="assistants" className="relative flex flex-col">
-      <div className="relative flex flex-col gap-8 px-5 py-16 sm:px-8 md:px-12">
+      <div className="relative flex flex-col gap-8 px-5 py-16 sm:gap-10 sm:px-8 md:px-12">
         <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
           <div className="flex flex-col gap-5">
             <Reveal static delay={60}>
@@ -78,7 +70,7 @@ export default function SectionThree() {
                 — Как тратить меньше времени?
               </div>
             </Reveal>
-            <h2 className="font-display max-w-md text-[clamp(32px,8.6vw,40px)] font-bold uppercase leading-[1.14] tracking-tight text-white drop-shadow-lg sm:text-4xl md:text-5xl">
+            <h2 className="font-display max-w-xl text-[clamp(40px,10.5vw,44px)] font-bold uppercase leading-[1.05] tracking-tight text-white drop-shadow-lg sm:text-5xl lg:text-[64px] lg:leading-[1.04]">
               <Reveal static as="span" delay={100} className="block">
                 Шесть{' '}
                 <span className="font-sans font-light normal-case italic tracking-normal">
@@ -99,28 +91,28 @@ export default function SectionThree() {
           </Reveal>
         </div>
 
-        {/* вводные абзацы — десктоп */}
+        {/* вводный текст — десктоп */}
         <Reveal static delay={160} className="hidden sm:block">
-          <div className="flex max-w-2xl flex-col gap-3">
-            <p className="text-[17px] leading-relaxed text-white/85 drop-shadow-md sm:text-sm">
+          <div className="flex max-w-3xl flex-col gap-3">
+            <p className="text-[18px] leading-[28px] text-white/76 drop-shadow-md">
               В крупном цветочном бизнесе эти задачи распределены между
               руководителями разных направлений. В небольшом магазине большую
               часть этой работы обычно выполняет сам владелец.
             </p>
-            <p className="text-[17px] leading-relaxed text-white drop-shadow-md sm:text-sm">
+            <p className="text-[18px] leading-[28px] text-white/96 drop-shadow-md">
               AI-помощники подключаются к CRM, кассам, банковским данным
               и Telegram, автоматически собирают и сводят информацию, проводят
               первичный анализ и показывают руководителю, что требует решения.{' '}
-              <span className="text-white/70">
+              <span className="text-white/76">
                 Решение и ответственность остаются за руководителем.
               </span>
             </p>
           </div>
         </Reveal>
 
-        {/* вводный абзац — мобильный, один */}
+        {/* вводный абзац — мобильный */}
         <Reveal static className="sm:hidden">
-          <p className="rounded-xl bg-[#0a0e14]/[0.93] p-4 text-[17px] leading-[1.55] text-white/90">
+          <p className="rounded-2xl bg-[#070c13]/[0.94] p-6 text-[18px] leading-[28px] text-white/96">
             В крупном бизнесе эти задачи распределены между разными
             руководителями. В небольшом магазине их обычно выполняет сам
             владелец. AI-помощники собирают данные, проводят первичный анализ
@@ -130,27 +122,24 @@ export default function SectionThree() {
 
         {/* мобильный аккордеон помощников */}
         <Reveal static className="sm:hidden">
-          <div className="overflow-hidden rounded-2xl border border-white/10 bg-[#0a0e14]/95 backdrop-blur-xl">
+          <div className="overflow-hidden rounded-[20px] border border-white/12 bg-[#070c13]/[0.94] backdrop-blur-xl">
             {CREW.map((member, i) => (
               <details
                 key={member.n}
                 name="crew-m"
                 open={i === 0}
-                className="group border-t border-white/10 open:bg-[#45C1FF]/[0.04] first:border-t-0"
+                className="group border-t border-white/12 open:bg-[#45C1FF]/[0.04] first:border-t-0"
               >
-                <summary className="flex min-h-[56px] cursor-pointer list-none items-center gap-3 px-5 py-3 [&::-webkit-details-marker]:hidden">
-                  <span className="font-mono text-xs text-white/40">
-                    [ {member.n} ]
-                  </span>
+                <summary className="flex min-h-[76px] cursor-pointer list-none items-center gap-3 px-6 py-4 [&::-webkit-details-marker]:hidden">
                   <span className="flex-1">
-                    <span className="block text-[16px] font-medium leading-snug text-white">
+                    <span className="block text-[20px] font-medium leading-snug text-white/96">
                       {member.name}
                     </span>
-                    <span className="block text-[13px] leading-snug text-white/55">
+                    <span className="block text-[16px] leading-snug text-white/60">
                       {member.short}
                     </span>
                   </span>
-                  <span className="shrink-0 font-mono text-[11px] uppercase text-white/45">
+                  <span className="shrink-0 font-mono text-[12px] uppercase text-white/58">
                     {member.lessons}
                   </span>
                   <Plus
@@ -158,47 +147,34 @@ export default function SectionThree() {
                     className="shrink-0 text-white/60 transition-transform duration-300 group-open:rotate-45"
                   />
                 </summary>
-                <div className="flex flex-col gap-4 px-5 pb-5">
+                <div className="flex flex-col gap-6 px-6 pb-6">
                   <div className="flex flex-col gap-1">
-                    <span className="font-mono text-[11px] uppercase tracking-[0.14em] text-white/45">
+                    <span className="font-mono text-xs uppercase tracking-[0.14em] text-white/58">
                       Задачи
                     </span>
-                    <p className="text-[16px] leading-[1.55] text-white/90">
+                    <p className="text-[18px] leading-[28px] text-white/96">
                       {member.role}
                     </p>
                   </div>
-                  <div className="flex flex-col gap-1">
-                    <span className="font-mono text-[11px] uppercase tracking-[0.14em] text-white/45">
-                      С какими данными работает
-                    </span>
-                    <p className="text-[16px] leading-[1.55] text-white/80">
-                      {member.data}
-                    </p>
-                  </div>
-                  <div className="flex flex-col gap-1">
-                    <span className="font-mono text-[11px] uppercase tracking-[0.14em] text-[#7AD4FF]/60">
-                      Результат для руководителя
-                    </span>
-                    <p className="text-[16px] leading-[1.55] text-white/90">
-                      {member.result}
-                    </p>
-                  </div>
-                  <div className="border-t border-white/10 pt-3">
+                  <p className="text-[21px] font-medium leading-[1.3] text-positive-signal">
+                    {member.result}
+                  </p>
+                  <div className="border-t border-white/12 pt-4">
                     {member.salary ? (
                       <div className="flex items-baseline justify-between gap-2">
-                        <span className="font-mono text-[11px] uppercase tracking-[0.12em] text-white/40">
+                        <span className="font-mono text-xs uppercase tracking-[0.12em] text-white/58">
                           роль на рынке
                         </span>
-                        <span className="font-mono text-[15px] text-[#7AD4FF]">
+                        <span className="font-mono text-[16px] text-[#7AD4FF]">
                           {member.salary}
                         </span>
                       </div>
                     ) : (
                       <div className="flex items-baseline justify-between gap-2">
-                        <span className="font-mono text-[11px] uppercase tracking-[0.12em] text-white/40">
+                        <span className="font-mono text-xs uppercase tracking-[0.12em] text-white/58">
                           отдельной ставки нет
                         </span>
-                        <span className="font-mono text-[13px] text-white/60">
+                        <span className="font-mono text-[16px] text-white/76">
                           обычно — сам владелец
                         </span>
                       </div>
@@ -210,37 +186,40 @@ export default function SectionThree() {
           </div>
         </Reveal>
 
-        {/* карточки ролей — десктоп */}
-        <div className="hidden gap-3 sm:grid sm:grid-cols-2 lg:grid-cols-3">
-          {CREW.map((member, i) => (
-            <Reveal key={member.n} delay={140 + i * 60} className="h-full">
-              <div className="flex h-full flex-col gap-3 rounded-2xl border border-white/10 bg-[#0c1118]/90 p-5 backdrop-blur-sm">
-                <div className="flex items-baseline justify-between font-mono text-[11px] tracking-[0.1em] text-white/45">
+        {/* карточки ролей — десктоп, две колонки */}
+        <div className="hidden gap-4 sm:grid sm:grid-cols-2">
+          {CREW.map((member) => (
+            <Reveal static key={member.n} className="h-full">
+              <div className="flex h-full min-h-[230px] flex-col gap-4 rounded-[20px] border border-white/12 bg-[#070c13]/[0.94] p-[30px]">
+                <div className="flex items-baseline justify-between font-mono text-[13px] tracking-[0.1em] text-white/58">
                   <span>[ {member.n} ]</span>
                   <span className="uppercase">{member.lessons}</span>
                 </div>
-                <div className="font-display text-xl font-semibold leading-snug text-white sm:text-[17px]">
+                <div className="text-[23px] font-semibold leading-snug text-white/96">
                   {member.name}
                 </div>
-                <p className="text-[17px] leading-relaxed text-white/75 sm:text-sm">
+                <p className="text-[17px] leading-[27px] text-white/76">
                   {member.role}
                 </p>
-                <div className="mt-auto border-t border-white/10 pt-3">
+                <p className="text-[20px] font-medium leading-[1.3] text-positive-signal">
+                  {member.result}
+                </p>
+                <div className="mt-auto border-t border-white/12 pt-4">
                   {member.salary ? (
-                    <div className="flex flex-col gap-0.5">
-                      <span className="font-mono text-[11px] uppercase tracking-[0.12em] text-white/40">
+                    <div className="flex items-baseline justify-between gap-2">
+                      <span className="font-mono text-[13px] uppercase tracking-[0.12em] text-white/58">
                         роль на рынке
                       </span>
-                      <span className="font-mono text-[15px] text-[#7AD4FF] sm:text-sm">
+                      <span className="font-mono text-[16px] text-[#7AD4FF]">
                         {member.salary}
                       </span>
                     </div>
                   ) : (
-                    <div className="flex flex-col gap-0.5">
-                      <span className="font-mono text-[11px] uppercase tracking-[0.12em] text-white/40">
+                    <div className="flex items-baseline justify-between gap-2">
+                      <span className="font-mono text-[13px] uppercase tracking-[0.12em] text-white/58">
                         отдельной ставки нет
                       </span>
-                      <span className="font-mono text-[15px] text-white/60 sm:text-sm">
+                      <span className="font-mono text-[16px] text-white/76">
                         обычно — сам владелец
                       </span>
                     </div>
@@ -251,87 +230,72 @@ export default function SectionThree() {
           ))}
         </div>
 
-        <Reveal delay={200}>
-          <div className="font-mono text-xs uppercase tracking-[0.12em] text-white/45 drop-shadow-md max-sm:rounded-xl max-sm:bg-[#0a0e14]/80 max-sm:p-3">
+        <Reveal static delay={200}>
+          <div className="font-mono text-xs uppercase tracking-[0.12em] text-white/58 drop-shadow-md max-sm:rounded-xl max-sm:bg-[#070c13]/80 max-sm:p-3">
             Суммы — стоимость роли на рынке, а не обещание замены сотрудника ·
             отдельные вакансии hh.ru, Москва и СПб, август 2026
           </div>
         </Reveal>
 
-        {/* Обычный день — десктоп */}
-        <Reveal delay={220} className="hidden sm:block">
-          <div className="flex flex-col gap-3 rounded-2xl border border-white/10 bg-[#0c1118]/90 p-5 sm:p-6">
-            <div className="font-mono text-xs uppercase tracking-[0.14em] text-white/60">
-              Как изменится обычный день
+        {/* Утро AI-руководителя — редакционная сцена */}
+        <Reveal static>
+          <div className="flex flex-col gap-6 rounded-[20px] border border-white/12 bg-[#070c13]/[0.94] p-6 backdrop-blur-xl sm:gap-8 sm:p-8">
+            <div className="font-mono text-xs uppercase tracking-[0.14em] text-white/58">
+              Как начинается утро AI-руководителя
             </div>
-            <p className="max-w-3xl text-[17px] leading-relaxed text-white/85 sm:text-sm">
+            <h3 className="font-display text-[clamp(34px,8.8vw,38px)] font-bold uppercase leading-[1.05] tracking-tight text-white/96 sm:text-[52px] sm:leading-[1.04]">
+              Утром — один отчёт
+            </h3>
+
+            <div className="grid gap-4 sm:grid-cols-3 sm:gap-6">
+              {[
+                ['01', 'Данные поступили из систем'],
+                ['02', 'AI собрал картину'],
+                ['03', 'Владелец принял решение'],
+              ].map(([num, text]) => (
+                <div key={num} className="flex items-baseline gap-3 border-t border-white/12 pt-3">
+                  <span className="font-mono text-xs text-[#7AD4FF]/80">{num}</span>
+                  <span className="text-[17px] leading-snug text-white/96 sm:text-[18px]">
+                    {text}
+                  </span>
+                </div>
+              ))}
+            </div>
+
+            <div className="flex flex-col gap-2">
+              <div className="text-[28px] font-semibold uppercase leading-[1.08] text-negative-signal sm:text-[36px]">
+                Потеряли клиентов
+              </div>
+              <div className="text-[24px] font-semibold uppercase leading-[1.1] text-positive-signal sm:text-[30px]">
+                Причина и сумма уже в отчёте
+              </div>
+            </div>
+
+            <p className="max-w-3xl text-[18px] leading-[28px] text-white/76">
               Вчера администраторы прислали выручку по каналам, обращения
               и причины отказов. Бухгалтерия добавила платежи, из учётной
               системы пришли остатки и списания.{' '}
-              <span className="text-white">
-                Утром AI-руководитель собрал <Pos>один отчёт</Pos>:{' '}
-                <Neg>где потеряли клиентов</Neg>, что заканчивается, что рискуем
-                списать, сколько денег находится в кассах и банках и какие
-                платежи предстоят.
+              <span className="text-white/96">
+                Утром AI-руководитель собрал один отчёт: где потеряли клиентов,
+                что заканчивается, что рискуем списать, сколько денег находится
+                в кассах и банках и какие платежи предстоят.
               </span>
             </p>
           </div>
         </Reveal>
 
-        {/* Утро AI-руководителя — мобильная контрастная карточка */}
-        <Reveal className="sm:hidden">
-          <div className="flex flex-col gap-4 rounded-2xl border border-[#45C1FF]/30 bg-[#0c1118]/95 p-5 backdrop-blur-xl">
-            <div className="font-display text-[18px] font-semibold leading-snug text-white">
-              Как начинается утро AI-руководителя
-            </div>
-            <div className="flex flex-col gap-1">
-              <span className="font-mono text-[11px] uppercase tracking-[0.14em] text-white/45">
-                Что поступило из систем
-              </span>
-              <p className="text-[16px] leading-[1.55] text-white/80">
-                Вчера администраторы прислали выручку по каналам, обращения
-                и причины отказов. Бухгалтерия добавила платежи, из учётной
-                системы пришли остатки и списания.
-              </p>
-            </div>
-            <div className="flex flex-col gap-1">
-              <span className="font-mono text-[11px] uppercase tracking-[0.14em] text-[#7AD4FF]/70">
-                Что собрал AI
-              </span>
-              <p className="text-[16px] leading-[1.55] text-white/90">
-                <Pos>Утром — один отчёт</Pos>: <Neg>где потеряли клиентов</Neg>,
-                что заканчивается, что рискуем списать, сколько денег находится
-                в кассах и банках и какие платежи предстоят.
-              </p>
-            </div>
-            <div className="flex flex-col gap-1">
-              <span className="font-mono text-[11px] uppercase tracking-[0.14em] text-white/70">
-                Решение — за владельцем
-              </span>
-              <p className="text-[16px] leading-[1.55] text-white">
-                Что дозаказать, какие платежи провести и на что обратить
-                внимание команды — решает руководитель.
-              </p>
-            </div>
+        {/* связка с программой */}
+        <Reveal static className="sm:hidden">
+          <div className="rounded-xl border border-white/12 bg-[#070c13]/[0.94] px-5 py-4 text-center font-mono text-[13px] uppercase leading-relaxed tracking-[0.1em] text-white/96">
+            9 уроков → 10 инструментов
+            <span className="block text-[#7AD4FF]">→ 6 AI-помощников</span>
           </div>
         </Reveal>
-
-        {/* связка с программой — десктоп: абзац */}
-        <Reveal delay={260} className="hidden sm:block">
-          <p className="max-w-2xl text-[17px] leading-relaxed text-white drop-shadow-md sm:text-sm">
+        <Reveal static className="hidden sm:block">
+          <p className="max-w-2xl text-[18px] leading-[28px] text-white/96 drop-shadow-md">
             9 уроков дают 10 инструментов, объединённых в шесть
             AI-помощников. Каких — в программе ниже.
           </p>
-        </Reveal>
-
-        {/* связка с программой — мобильная итоговая строка */}
-        <Reveal className="sm:hidden">
-          <div className="rounded-xl border border-white/10 bg-[#0a0e14]/95 px-5 py-4 text-center font-mono text-[13px] uppercase leading-relaxed tracking-[0.1em] text-white">
-            9 уроков → 10 инструментов
-            <span className="block text-[#7AD4FF]">
-              → 6 AI-помощников
-            </span>
-          </div>
         </Reveal>
       </div>
 

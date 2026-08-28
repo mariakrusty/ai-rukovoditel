@@ -1,7 +1,6 @@
 import { Plus, Share2 } from 'lucide-react'
 import Reveal from '../components/Reveal'
 import useIsMobile from '../useIsMobile'
-import { Pos } from '../components/Signals'
 import { ASSISTANT_URL, SIGNUP_URL } from '../config'
 
 type Lesson = {
@@ -173,10 +172,10 @@ const OUTCOMES = [
 function Field({ label, children }: { label: string; children: string }) {
   return (
     <div className="flex flex-col gap-1">
-      <span className="font-mono text-[11px] uppercase tracking-[0.14em] text-white/45">
+      <span className="font-mono text-xs uppercase tracking-[0.14em] text-white/58">
         {label}
       </span>
-      <span className="text-[17px] leading-relaxed text-white/85 sm:text-sm">
+      <span className="text-[18px] leading-[28px] text-white/96 sm:text-[17px] sm:leading-[27px]">
         {children}
       </span>
     </div>
@@ -223,7 +222,7 @@ export default function SectionFour() {
                 <div className="relative h-px w-full bg-gradient-to-r from-white/10 via-white/35 to-[#45C1FF]/80">
                   <span className="absolute -right-1 top-1/2 h-2 w-2 -translate-y-1/2 rotate-45 border-r border-t border-[#45C1FF]" />
                 </div>
-                <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-white/70">
+                <span className="font-mono text-xs uppercase tracking-[0.16em] text-white/76">
                   объединены в 6 AI-помощников
                 </span>
               </div>
@@ -251,13 +250,13 @@ export default function SectionFour() {
           {/* почему чисел два — на виду, не в раскрытии */}
           <div className="hidden sm:flex sm:items-start sm:justify-between sm:gap-8">
             <Reveal static delay={340}>
-              <p className="max-w-xl text-[17px] leading-relaxed text-white/85 drop-shadow-md sm:text-sm">
+              <p className="max-w-xl text-[18px] leading-[28px] text-white/76 drop-shadow-md">
                 Девятимесячная программа внедрения. Один инструмент в месяц,
                 работа на данных своего магазина и поддержка между занятиями.
               </p>
             </Reveal>
             <Reveal static delay={380}>
-              <p className="max-w-sm text-[17px] leading-relaxed text-white drop-shadow-md sm:text-right sm:text-sm">
+              <p className="max-w-sm text-[18px] leading-[28px] text-white/96 drop-shadow-md sm:text-right">
                 Каждый урок начинается с вопроса собственника и заканчивается
                 работающим инструментом. Финансовый урок даёт сразу два:
                 расчёт прибыли — и платёжный календарь.
@@ -268,7 +267,7 @@ export default function SectionFour() {
 
         {/* дуга сезона — на всю ширину, крупно */}
         <Reveal static delay={160} className="hidden sm:block">
-          <p className="border-y border-white/15 py-5 text-[17px] leading-relaxed text-white drop-shadow-md sm:text-lg">
+          <p className="border-y border-white/12 py-5 text-[21px] leading-[1.5] text-white/96 drop-shadow-md">
             <span className="text-white/60">До высокого сезона</span> — товар,
             закупка и клиенты.{' '}
             <span className="text-white/60">В сезон</span> — контроль
@@ -288,12 +287,12 @@ export default function SectionFour() {
           ].map(([label, text]) => (
             <div
               key={label}
-              className="flex flex-col gap-1 rounded-xl border border-white/10 bg-[#0a0e14]/95 p-4"
+              className="flex flex-col gap-1 rounded-2xl border border-white/12 bg-[#070c13]/[0.94] p-6"
             >
-              <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-[#7AD4FF]">
+              <span className="font-mono text-[12px] uppercase tracking-[0.16em] text-[#7AD4FF]">
                 {label}
               </span>
-              <span className="text-[16px] leading-[1.55] text-white/90">
+              <span className="text-[18px] leading-[28px] text-white/96">
                 {text}
               </span>
             </div>
@@ -301,7 +300,7 @@ export default function SectionFour() {
         </div>
 
         <Reveal static delay={200}>
-          <div className="font-mono text-xs uppercase tracking-[0.12em] text-white/50 drop-shadow-md max-sm:rounded-xl max-sm:bg-[#0a0e14]/80 max-sm:p-3 max-sm:text-white/70">
+          <div className="font-mono text-xs uppercase tracking-[0.12em] text-white/58 drop-shadow-md max-sm:rounded-xl max-sm:bg-[#070c13]/80 max-sm:p-3 max-sm:text-white/76">
             Старт — 5 октября 2026 · финал — 15 июня 2027 · один урок
             в месяц · июль и август — каникулы · нажмите на урок, чтобы
             раскрыть
@@ -309,27 +308,27 @@ export default function SectionFour() {
         </Reveal>
 
         {/* Программа: пять колонок в строке, раскрытие в две */}
-        <div className="flex flex-col rounded-2xl bg-[#0a0e14]/95 p-4 backdrop-blur-md sm:bg-black/45 sm:p-6 sm:backdrop-blur-none">
-          {LESSONS.map((lesson, i) => (
-            <Reveal key={lesson.n} delay={100 + i * 50}>
+        <div className="flex flex-col rounded-[20px] bg-[#070c13]/[0.94] p-4 backdrop-blur-md sm:p-6">
+          {LESSONS.map((lesson) => (
+            <Reveal static key={lesson.n}>
               <details
                 {...(isMobile ? { name: 'lessons-m' } : {})}
                 className="group border-t border-white/15 first:border-t-0 max-sm:open:bg-[#45C1FF]/[0.04] max-sm:open:shadow-[inset_2px_0_0_#45C1FF]"
               >
-                <summary className="flex cursor-pointer list-none items-baseline gap-3 py-4 max-sm:min-h-[60px] max-sm:items-center max-sm:px-2 sm:gap-4 [&::-webkit-details-marker]:hidden">
-                  <span className="font-mono text-xs text-white/50">
+                <summary className="flex min-h-[64px] cursor-pointer list-none items-center gap-3 py-4 max-sm:min-h-[68px] max-sm:px-2 sm:gap-4 [&::-webkit-details-marker]:hidden">
+                  <span className="font-mono text-[13px] text-white/58">
                     [ {lesson.n} ]
                   </span>
-                  <span className="w-14 shrink-0 font-mono text-xs text-[#7AD4FF]/90">
+                  <span className="w-14 shrink-0 font-mono text-[13px] text-[#7AD4FF]/90">
                     {lesson.date}
                   </span>
-                  <span className="hidden w-20 shrink-0 text-sm text-white/50 sm:block">
+                  <span className="hidden w-20 shrink-0 text-[14px] text-white/58 sm:block">
                     {lesson.block}
                   </span>
-                  <span className="flex-1 text-[17px] font-medium leading-snug text-white drop-shadow-md sm:text-[15px]">
+                  <span className="flex-1 text-[18px] font-medium leading-snug text-white/96 drop-shadow-md">
                     {lesson.name}
                   </span>
-                  <span className="hidden w-56 shrink-0 text-right font-mono text-[11px] uppercase tracking-[0.08em] text-white/45 md:block">
+                  <span className="hidden w-56 shrink-0 text-right font-mono text-[13px] uppercase tracking-[0.08em] text-white/58 md:block">
                     {lesson.crew}
                   </span>
                   <Plus
@@ -347,10 +346,10 @@ export default function SectionFour() {
                     <Field label="Какие данные передадим">{lesson.data}</Field>
                     <Field label="Результат урока">{lesson.result}</Field>
                     <div className="flex items-center gap-2 border-t border-white/10 pt-3">
-                      <span className="font-mono text-[11px] uppercase tracking-[0.14em] text-white/45">
+                      <span className="font-mono text-xs uppercase tracking-[0.14em] text-white/58">
                         складывается в помощника
                       </span>
-                      <span className="font-mono text-xs text-[#7AD4FF]">
+                      <span className="font-mono text-[13px] text-[#7AD4FF]">
                         {lesson.crew}
                       </span>
                     </div>
@@ -366,7 +365,7 @@ export default function SectionFour() {
           <div className="font-mono text-xs uppercase tracking-[0.14em] text-white/60 drop-shadow-md">
             Что понадобится для работы
           </div>
-          <div className="overflow-hidden rounded-2xl border border-white/10 bg-[#0a0e14]/95 backdrop-blur-xl">
+          <div className="overflow-hidden rounded-[20px] border border-white/12 bg-[#070c13]/[0.94] backdrop-blur-xl">
             {[
               {
                 title: 'Техника и подписки',
@@ -398,8 +397,8 @@ export default function SectionFour() {
                 name="reqs-m"
                 className="group border-t border-white/10 open:bg-[#45C1FF]/[0.04] first:border-t-0"
               >
-                <summary className="flex min-h-[52px] cursor-pointer list-none items-center gap-3 px-5 py-3 [&::-webkit-details-marker]:hidden">
-                  <span className="flex-1 text-[16px] font-medium text-white">
+                <summary className="flex min-h-[60px] cursor-pointer list-none items-center gap-3 px-6 py-3 [&::-webkit-details-marker]:hidden">
+                  <span className="flex-1 text-[18px] font-medium text-white/96">
                     {req.title}
                   </span>
                   <Plus
@@ -407,11 +406,11 @@ export default function SectionFour() {
                     className="shrink-0 text-white/60 transition-transform duration-300 group-open:rotate-45"
                   />
                 </summary>
-                <ul className="flex flex-col gap-2 px-5 pb-5">
+                <ul className="flex flex-col gap-2 px-6 pb-6">
                   {req.items.map((item) => (
                     <li
                       key={item}
-                      className="flex gap-2 text-[16px] leading-[1.55] text-white/85"
+                      className="flex gap-2 text-[18px] leading-[28px] text-white/96"
                     >
                       <span className="text-[#7AD4FF]">·</span>
                       {item}
@@ -423,19 +422,19 @@ export default function SectionFour() {
           </div>
         </div>
 
-        <div className="hidden gap-6 rounded-2xl border border-white/10 bg-[#0c1118]/90 p-5 sm:grid sm:grid-cols-2 sm:gap-10 sm:p-6">
-          <Reveal delay={80}>
+        <div className="hidden gap-6 rounded-[20px] border border-white/12 bg-[#070c13]/[0.94] p-5 sm:grid sm:grid-cols-2 sm:gap-10 sm:p-[30px]">
+          <Reveal static delay={80}>
             <div className="flex h-full flex-col gap-3">
-              <div className="font-mono text-xs uppercase tracking-[0.14em] text-white/60">
+              <div className="font-mono text-[14px] uppercase tracking-[0.14em] text-white/60">
                 Что понадобится для работы
               </div>
-              <p className="text-[17px] leading-relaxed text-white/85 sm:text-sm">
+              <p className="text-[17px] leading-[27px] text-white/96">
                 Компьютер, личный аккаунт ChatGPT с платным тарифом и цифровая
                 система учёта магазина — например, МойСклад, 1С или аналогичная
                 система, в которой ведутся продажи, остатки и закупки.{' '}
                 <span className="text-white">Программирование не требуется.</span>
               </p>
-              <p className="text-[17px] leading-relaxed text-white/85 sm:text-sm">
+              <p className="text-[17px] leading-[27px] text-white/76">
                 Идеального порядка в учётной системе не требуется: на уроках
                 AI-помощники помогут привести данные к единому виду и покажут,
                 чего не хватает для анализа.
@@ -444,10 +443,10 @@ export default function SectionFour() {
           </Reveal>
           <Reveal static delay={140}>
             <div className="flex h-full flex-col gap-3 border-t border-white/10 pt-5 sm:border-l sm:border-t-0 sm:pl-10 sm:pt-0">
-              <div className="font-mono text-xs uppercase tracking-[0.14em] text-white/60">
+              <div className="font-mono text-[14px] uppercase tracking-[0.14em] text-white/60">
                 Безопасность данных
               </div>
-              <p className="text-[17px] leading-relaxed text-white/85 sm:text-sm">
+              <p className="text-[17px] leading-[27px] text-white/96">
                 Подключения настраиваются в аккаунтах владельца. Для каждого
                 помощника используется только необходимый доступ. На курсе
                 отдельно разбираются права доступа и безопасная работа
@@ -457,107 +456,75 @@ export default function SectionFour() {
           </Reveal>
         </div>
 
-        {/* Как устроено обучение — три колонки */}
-        <div className="flex flex-col gap-4 rounded-2xl border border-white/10 bg-[#0c1118]/90 p-5 max-sm:bg-[#0c1118]/95 max-sm:backdrop-blur-md sm:p-6">
-          <Reveal delay={80}>
+        {/* Как устроено обучение: три главных показателя + условия */}
+        <div className="flex flex-col gap-6 rounded-[20px] border border-white/12 bg-[#070c13]/[0.94] p-6 backdrop-blur-md sm:gap-8 sm:p-[30px]">
+          <Reveal static>
             <div className="font-mono text-xs uppercase tracking-[0.14em] text-white/60">
               Как устроено обучение
             </div>
           </Reveal>
-          <div className="flex flex-col gap-4 sm:hidden">
+          <div className="grid gap-6 sm:grid-cols-3 sm:gap-8">
             {[
-              ['9 месяцев', 'Один урок в месяц. Всё остальное время — внедрение инструмента в своём магазине.'],
-              ['30–60 минут', 'Живой прямой эфир. Записи — до 5 октября 2027, ровно год со старта.'],
-              ['чат с автором', 'Поддержка между уроками: на вопросы отвечает Мария лично.'],
-              ['без домашек', 'Внедрил — работает; не выходит — разбираем. Кураторство по урокам.'],
-            ].map(([label, text]) => (
-              <div key={label} className="flex flex-col gap-0.5">
-                <span className="font-mono text-[13px] text-[#7AD4FF]">
-                  {label}
-                </span>
-                <span className="text-[16px] leading-[1.55] text-white/85">
-                  {text}
-                </span>
-              </div>
+              [
+                '9 месяцев',
+                'Один урок в месяц. Всё остальное время — внедрение инструмента в своём магазине.',
+              ],
+              [
+                '30–60 минут',
+                'Каждый урок — живой прямой эфир. Запись остаётся в доступе.',
+              ],
+              [
+                'Записи — год',
+                'Доступ ко всем урокам до 5 октября 2027 — ровно год со старта.',
+              ],
+            ].map(([big, text]) => (
+              <Reveal static key={big}>
+                <div className="flex flex-col gap-2 border-t border-white/12 pt-4">
+                  <span className="font-display text-[28px] font-bold uppercase leading-[1.06] tracking-tight text-white/96 sm:text-[32px]">
+                    {big}
+                  </span>
+                  <span className="text-[17px] leading-[27px] text-white/76 sm:text-[17px]">
+                    {text}
+                  </span>
+                </div>
+              </Reveal>
             ))}
           </div>
-          <div className="hidden gap-x-8 gap-y-4 sm:grid sm:grid-cols-2 lg:grid-cols-3">
-            <Reveal delay={120}>
-              <div className="flex flex-col gap-1">
-                <span className="font-mono text-sm text-[#7AD4FF]">9 месяцев</span>
-                <span className="text-[17px] leading-relaxed text-white/80 sm:text-sm">
-                  Один урок в месяц. Всё остальное время — внедрение
-                  инструмента в вашем магазине.
-                </span>
-              </div>
-            </Reveal>
-            <Reveal static delay={160}>
-              <div className="flex flex-col gap-1">
-                <span className="font-mono text-sm text-[#7AD4FF]">30–60 минут</span>
-                <span className="text-[17px] leading-relaxed text-white/80 sm:text-sm">
-                  Каждый урок — живой прямой эфир. Запись остаётся
-                  в доступе.
-                </span>
-              </div>
-            </Reveal>
-            <Reveal static delay={200}>
-              <div className="flex flex-col gap-1">
-                <span className="font-mono text-sm text-[#7AD4FF]">записи — год</span>
-                <span className="text-[17px] leading-relaxed text-white/80 sm:text-sm">
-                  Доступ ко всем урокам до 5 октября 2027 — ровно год
-                  со старта.
-                </span>
-              </div>
-            </Reveal>
-            <Reveal delay={240}>
-              <div className="flex flex-col gap-1">
-                <span className="font-mono text-sm text-[#7AD4FF]">чат с автором</span>
-                <span className="text-[17px] leading-relaxed text-white/80 sm:text-sm">
-                  Вопросы по внедрению — в чат курса. На них отвечает
-                  Мария лично.
-                </span>
-              </div>
-            </Reveal>
-            <Reveal delay={280}>
-              <div className="flex flex-col gap-1">
-                <span className="font-mono text-sm text-[#7AD4FF]">без домашек</span>
-                <span className="text-[17px] leading-relaxed text-white/80 sm:text-sm">
-                  Практика — внедрение инструмента на данных своего магазина.
-                  Если не получается — разбираем в чате.
-                </span>
-              </div>
-            </Reveal>
-            <Reveal delay={320}>
-              <div className="flex flex-col gap-1">
-                <span className="font-mono text-sm text-[#7AD4FF]">кураторство</span>
-                <span className="text-[17px] leading-relaxed text-white/80 sm:text-sm">
-                  Коллективная прокачка под кураторством автора. Настройка
-                  идёт по урокам, шаг за шагом.
-                </span>
-              </div>
-            </Reveal>
-          </div>
+          <Reveal static>
+            <div className="flex flex-col gap-3 border-t border-white/12 pt-5">
+              <p className="text-[17px] leading-[27px] text-white/96 sm:text-[18px] sm:leading-[28px]">
+                Чат курса: на вопросы отвечает Мария лично.
+              </p>
+              <p className="text-[17px] leading-[27px] text-white/96 sm:text-[18px] sm:leading-[28px]">
+                Домашек нет: внедрил — работает; не выходит — разбираем.
+              </p>
+              <p className="text-[17px] leading-[27px] text-white/96 sm:text-[18px] sm:leading-[28px]">
+                Коллективная прокачка под кураторством автора, настройка идёт
+                по урокам.
+              </p>
+            </div>
+          </Reveal>
         </div>
 
-        {/* Итог курса — чек-лист, результат слева и запись справа */}
-        <div id="itog" className="flex flex-col gap-5 rounded-2xl border border-white/10 bg-[#0c1118]/90 p-5 max-sm:bg-[#0c1118]/95 max-sm:backdrop-blur-md sm:p-6">
-          <Reveal static delay={100}>
-            <div className="flex flex-wrap items-baseline justify-between gap-2 border-b border-white/10 pb-4">
-              <div className="font-display text-xl font-bold uppercase tracking-tight text-white">
+        {/* Итог курса: крупный тезис + четыре группы инструментов */}
+        <div id="itog" className="flex flex-col gap-6 rounded-[20px] border border-white/12 bg-[#070c13]/[0.94] p-6 backdrop-blur-md sm:p-[30px]">
+          <Reveal static>
+            <div className="flex flex-wrap items-baseline justify-between gap-2 border-b border-white/12 pb-4">
+              <div className="font-mono text-xs uppercase tracking-[0.14em] text-white/60">
                 Итог курса: система собрана
               </div>
               <div className="font-mono text-xs text-[#7AD4FF]">[ ИТОГ ]</div>
             </div>
           </Reveal>
 
-          <Reveal static delay={160}>
-            <p className="max-w-xl text-[17px] leading-relaxed text-white/85 sm:text-sm">
-              Участник заканчивает курс не папкой с десятью промптами,
-              а <Pos>работающей системой</Pos>:
-            </p>
+          <Reveal static>
+            <h3 className="max-w-4xl font-display text-[clamp(28px,7.4vw,32px)] font-bold uppercase leading-[1.08] tracking-tight text-white/96 sm:text-[40px] sm:leading-[1.06]">
+              Работающая система,{' '}
+              <span className="text-positive-signal">а не папка с промптами</span>
+            </h3>
           </Reveal>
 
-          <div className="overflow-hidden rounded-xl border border-white/10 sm:hidden">
+          <div className="overflow-hidden rounded-2xl border border-white/12">
             {[
               { title: 'Товар и закупка', items: OUTCOMES.slice(0, 4) },
               { title: 'Деньги', items: OUTCOMES.slice(4, 6) },
@@ -567,13 +534,13 @@ export default function SectionFour() {
               <details
                 key={groupItem.title}
                 name="outcomes-m"
-                className="group border-t border-white/10 open:bg-[#45C1FF]/[0.04] first:border-t-0"
+                className="group border-t border-white/12 open:bg-[#45C1FF]/[0.04] first:border-t-0"
               >
-                <summary className="flex min-h-[52px] cursor-pointer list-none items-center gap-3 px-4 py-3 [&::-webkit-details-marker]:hidden">
-                  <span className="flex-1 text-[16px] font-medium text-white">
+                <summary className="flex min-h-[60px] cursor-pointer list-none items-center gap-3 px-5 py-4 [&::-webkit-details-marker]:hidden sm:px-6">
+                  <span className="flex-1 text-[20px] font-medium text-white/96 sm:text-[21px]">
                     {groupItem.title}
                   </span>
-                  <span className="shrink-0 font-mono text-[11px] uppercase text-[#7AD4FF]">
+                  <span className="shrink-0 font-mono text-[13px] uppercase text-[#7AD4FF]">
                     {groupItem.items.length} инструмента
                   </span>
                   <Plus
@@ -581,13 +548,13 @@ export default function SectionFour() {
                     className="shrink-0 text-white/60 transition-transform duration-300 group-open:rotate-45"
                   />
                 </summary>
-                <div className="flex flex-col gap-2.5 px-4 pb-4">
+                <div className="flex flex-col gap-3 px-5 pb-5 sm:px-6">
                   {groupItem.items.map((item) => (
                     <div key={item} className="flex items-center gap-3">
-                      <span className="flex h-5 w-5 flex-none items-center justify-center rounded border border-[#45C1FF]/60 font-mono text-[11px] leading-none text-[#7AD4FF]">
+                      <span className="flex h-5 w-5 flex-none items-center justify-center rounded border border-[#45C1FF]/60 font-mono text-xs leading-none text-[#7AD4FF]">
                         ✓
                       </span>
-                      <span className="text-[16px] leading-snug text-white/90">
+                      <span className="text-[17px] leading-snug text-white/96 sm:text-[18px]">
                         {item}
                       </span>
                     </div>
@@ -597,49 +564,37 @@ export default function SectionFour() {
             ))}
           </div>
 
-          <div className="hidden gap-x-8 gap-y-3 sm:grid sm:grid-cols-2">
-            {OUTCOMES.map((item, i) => (
-              <Reveal key={i} delay={180 + i * 30}>
-                <div className="flex items-center gap-3">
-                  <span className="flex h-5 w-5 flex-none items-center justify-center rounded border border-[#45C1FF]/60 font-mono text-[11px] leading-none text-[#7AD4FF] shadow-[0_0_10px_rgba(69,193,255,0.35)]">
-                    ✓
-                  </span>
-                  <span className="text-[17px] leading-snug text-white/90 sm:text-sm">
-                    {item}
-                  </span>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-
           {/* финал: результат слева, действие справа */}
           <div className="mt-2 grid gap-4 sm:grid-cols-2">
-            <Reveal delay={280} className="h-full">
-              <div className="flex h-full flex-col gap-2 rounded-xl bg-[#45C1FF]/10 p-4 max-sm:border max-sm:border-[#45C1FF]/40 max-sm:bg-[#0d1a26] sm:p-5">
-                <div className="font-mono text-[11px] uppercase tracking-[0.14em] text-[#7AD4FF]">
+            <Reveal static delay={280} className="h-full">
+              <div className="flex h-full flex-col gap-3 rounded-2xl border border-[#45C1FF]/40 bg-[#0d1a26] p-6 sm:p-[30px]">
+                <div className="font-mono text-xs uppercase tracking-[0.14em] text-white/60">
                   Главный результат
                 </div>
-                <p className="text-lg font-medium leading-relaxed text-white">
+                <div className="text-[24px] font-semibold uppercase leading-[1.1] text-positive-signal sm:text-[27px]">
+                  Решения, которые влияют на прибыль
+                </div>
+                <p className="text-[17px] leading-[27px] text-white/96 sm:text-[18px] sm:leading-[28px]">
                   Руководитель меньше времени тратит на сбор таблиц и ручную
-                  подготовку отчётов и больше — на{' '}
-                  <Pos>решения, которые влияют на прибыль магазина</Pos>.
+                  подготовку отчётов и больше — на решения, которые влияют
+                  на прибыль магазина.
                 </p>
               </div>
             </Reveal>
 
-            <Reveal delay={340} className="h-full">
-              <div className="flex h-full flex-col items-start justify-center gap-3 rounded-xl border border-[#45C1FF]/40 bg-[#45C1FF]/5 p-4 max-sm:bg-[#081420] sm:p-5">
+            <Reveal static delay={340} className="h-full">
+              <div className="flex h-full flex-col items-start justify-center gap-3 rounded-2xl border border-[#45C1FF]/40 bg-[#081420] p-6 sm:p-[30px]">
                 <div className="font-mono text-xs uppercase tracking-[0.14em] text-[#7AD4FF]">
                   Старт — 5 октября 2026, 11:00 мск
                 </div>
-                <div className="font-mono text-xs uppercase tracking-[0.12em] text-white/60 max-sm:text-white/80">
+                <div className="font-mono text-[13px] uppercase tracking-[0.12em] text-white/76">
                   9 месяцев внедрения · записи до 5 октября 2027
                 </div>
                 <a
                   href={SIGNUP_URL}
                   target="_blank"
                   rel="noreferrer"
-                  className="mt-1 block w-full rounded-full bg-[#45C1FF] px-10 py-3.5 max-sm:flex max-sm:min-h-[56px] max-sm:items-center max-sm:justify-center text-center font-mono text-xs font-semibold uppercase tracking-[0.15em] text-[#04131F] shadow-[0_0_16px_rgba(69,193,255,0.9),0_0_48px_rgba(69,193,255,0.45)] transition-all duration-300 hover:bg-[#7AD4FF] hover:shadow-[0_0_22px_rgba(122,212,255,1),0_0_64px_rgba(122,212,255,0.6)] sm:w-auto"
+                  className="mt-1 flex w-full min-h-[56px] items-center justify-center rounded-full bg-[#45C1FF] px-10 py-3.5 text-center font-mono text-[13px] font-semibold uppercase tracking-[0.15em] text-[#04131F] shadow-[0_0_16px_rgba(69,193,255,0.9),0_0_48px_rgba(69,193,255,0.45)] transition-all duration-300 hover:bg-[#7AD4FF] hover:shadow-[0_0_22px_rgba(122,212,255,1),0_0_64px_rgba(122,212,255,0.6)] sm:w-auto"
                 >
                   Узнать стоимость и условия
                 </a>
@@ -647,7 +602,7 @@ export default function SectionFour() {
                   href={ASSISTANT_URL}
                   target="_blank"
                   rel="noreferrer"
-                  className="font-mono text-xs text-white/60 underline decoration-white/30 max-sm:text-white/75 underline-offset-4 transition-colors hover:text-white"
+                  className="font-mono text-[13px] text-white/76 underline decoration-white/30 underline-offset-4 transition-colors hover:text-white"
                 >
                   Остались вопросы? Спросите ассистента Марии
                 </a>
@@ -673,7 +628,7 @@ export default function SectionFour() {
         delay={980}
         className="absolute bottom-5 right-5 sm:bottom-6 sm:right-8 md:right-12"
       >
-        <span className="font-mono text-[10px] text-white/40 sm:text-xs">
+        <span className="font-mono text-xs text-white/58">
           Мария Андреева · 2026
         </span>
       </Reveal>

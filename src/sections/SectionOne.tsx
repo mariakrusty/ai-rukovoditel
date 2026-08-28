@@ -44,7 +44,7 @@ export default function SectionOne() {
 
           {/* Что это и для кого — на десктопе; на мобильном уехало на экран 2 */}
           <Reveal delay={480} className="order-2 w-full sm:order-none">
-            <p className="mb-4 hidden text-base leading-relaxed text-white drop-shadow-md sm:block sm:text-sm short:mb-2">
+            <p className="mb-4 hidden text-base leading-relaxed text-white drop-shadow-md sm:block sm:text-[17px] sm:leading-[27px] short:mb-2">
               За 9 уроков вы соберёте шесть AI-помощников для ассортимента,
               закупки, денег, продаж, команды и процессов — и будете принимать
               решения по данным, а не по интуиции.
@@ -52,7 +52,7 @@ export default function SectionOne() {
           </Reveal>
 
           <Reveal delay={540} className="order-3 hidden w-full sm:order-none sm:block">
-            <p className="mb-4 text-[13px] leading-relaxed text-white/70 drop-shadow-md sm:mb-6 short:mb-3">
+            <p className="mb-4 text-[15px] leading-[1.6] text-white/76 drop-shadow-md sm:mb-6 short:mb-3">
               Подходит офлайн-магазинам, интернет-магазинам и смешанному
               формату: мы работаем не с сайтом или витриной, а с управленческими
               данными — продажами по каналам, обращениями, остатками, закупками
