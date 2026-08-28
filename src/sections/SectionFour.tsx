@@ -172,10 +172,10 @@ const OUTCOMES = [
 function Field({ label, children }: { label: string; children: string }) {
   return (
     <div className="flex flex-col gap-1">
-      <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-white/45">
+      <span className="font-mono text-[11px] uppercase tracking-[0.14em] text-white/45">
         {label}
       </span>
-      <span className="text-base leading-relaxed text-white/85 sm:text-sm">
+      <span className="text-[17px] leading-relaxed text-white/85 sm:text-sm">
         {children}
       </span>
     </div>
@@ -241,7 +241,7 @@ export default function SectionFour() {
 
           {/* мобильная версия связки */}
           <Reveal static delay={220} className="sm:hidden">
-            <div className="font-mono text-[11px] uppercase tracking-[0.16em] text-white/70">
+            <div className="font-mono text-xs uppercase tracking-[0.16em] text-white/70">
               → закрывают 6 AI-помощников
             </div>
           </Reveal>
@@ -249,13 +249,13 @@ export default function SectionFour() {
           {/* почему чисел два — на виду, не в раскрытии */}
           <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between sm:gap-8">
             <Reveal static delay={340}>
-              <p className="max-w-xl text-base leading-relaxed text-white/85 drop-shadow-md sm:text-sm">
+              <p className="max-w-xl text-[17px] leading-relaxed text-white/85 drop-shadow-md sm:text-sm">
                 Девятимесячная программа внедрения. Один инструмент в месяц,
                 работа на данных своего магазина и поддержка между занятиями.
               </p>
             </Reveal>
             <Reveal static delay={380}>
-              <p className="max-w-sm text-base leading-relaxed text-white drop-shadow-md sm:text-right sm:text-sm">
+              <p className="max-w-sm text-[17px] leading-relaxed text-white drop-shadow-md sm:text-right sm:text-sm">
                 Каждый урок начинается с вопроса собственника. Финансовый
                 закрывает сразу два: сколько заработали — и хватит ли
                 на платежи.
@@ -266,7 +266,7 @@ export default function SectionFour() {
 
         {/* дуга сезона — на всю ширину, крупно */}
         <Reveal static delay={160}>
-          <p className="border-y border-white/15 py-5 text-base leading-relaxed text-white drop-shadow-md sm:text-lg">
+          <p className="border-y border-white/15 py-5 text-[17px] leading-relaxed text-white drop-shadow-md sm:text-lg">
             <span className="text-white/60">До высокого сезона</span> — товар,
             закупка и клиенты.{' '}
             <span className="text-white/60">В сезон</span> — контроль
@@ -278,7 +278,7 @@ export default function SectionFour() {
         </Reveal>
 
         <Reveal static delay={200}>
-          <div className="font-mono text-[11px] uppercase tracking-[0.12em] text-white/50 drop-shadow-md sm:text-xs">
+          <div className="font-mono text-xs uppercase tracking-[0.12em] text-white/50 drop-shadow-md">
             Старт — 5 октября 2026 · финал — 15 июня 2027 · один урок
             в месяц · июль и август — каникулы · нажмите на урок, чтобы
             раскрыть
@@ -300,7 +300,7 @@ export default function SectionFour() {
                   <span className="hidden w-20 shrink-0 text-sm text-white/50 sm:block">
                     {lesson.block}
                   </span>
-                  <span className="flex-1 text-base font-medium leading-snug text-white drop-shadow-md sm:text-[15px]">
+                  <span className="flex-1 text-[17px] font-medium leading-snug text-white drop-shadow-md sm:text-[15px]">
                     {lesson.name}
                   </span>
                   <span className="hidden w-56 shrink-0 text-right font-mono text-[11px] uppercase tracking-[0.08em] text-white/45 md:block">
@@ -321,7 +321,7 @@ export default function SectionFour() {
                     <Field label="Какие данные передадим">{lesson.data}</Field>
                     <Field label="Результат урока">{lesson.result}</Field>
                     <div className="flex items-center gap-2 border-t border-white/10 pt-3">
-                      <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-white/45">
+                      <span className="font-mono text-[11px] uppercase tracking-[0.14em] text-white/45">
                         складывается в помощника
                       </span>
                       <span className="font-mono text-xs text-[#7AD4FF]">
@@ -342,13 +342,13 @@ export default function SectionFour() {
               <div className="font-mono text-xs uppercase tracking-[0.14em] text-white/60">
                 Что понадобится для работы
               </div>
-              <p className="text-base leading-relaxed text-white/85 sm:text-sm">
+              <p className="text-[17px] leading-relaxed text-white/85 sm:text-sm">
                 Компьютер, личный аккаунт ChatGPT с платным тарифом и цифровая
                 система учёта магазина — например, МойСклад, 1С или аналогичная
                 система, в которой ведутся продажи, остатки и закупки.{' '}
                 <span className="text-white">Программирование не требуется.</span>
               </p>
-              <p className="text-base leading-relaxed text-white/85 sm:text-sm">
+              <p className="text-[17px] leading-relaxed text-white/85 sm:text-sm">
                 Идеального порядка в учётной системе не требуется: на уроках
                 AI-помощники помогут привести данные к единому виду и покажут,
                 чего не хватает для анализа.
@@ -360,7 +360,7 @@ export default function SectionFour() {
               <div className="font-mono text-xs uppercase tracking-[0.14em] text-white/60">
                 Безопасность данных
               </div>
-              <p className="text-base leading-relaxed text-white/85 sm:text-sm">
+              <p className="text-[17px] leading-relaxed text-white/85 sm:text-sm">
                 Подключения настраиваются в аккаунтах владельца. Для каждого
                 помощника используется только необходимый доступ. На курсе
                 отдельно разбираются права доступа и безопасная работа
@@ -381,7 +381,7 @@ export default function SectionFour() {
             <Reveal delay={120}>
               <div className="flex flex-col gap-1">
                 <span className="font-mono text-sm text-[#7AD4FF]">9 месяцев</span>
-                <span className="text-base leading-relaxed text-white/80 sm:text-sm">
+                <span className="text-[17px] leading-relaxed text-white/80 sm:text-sm">
                   Один урок в месяц. Всё остальное время — внедрение
                   инструмента в вашем магазине.
                 </span>
@@ -390,7 +390,7 @@ export default function SectionFour() {
             <Reveal static delay={160}>
               <div className="flex flex-col gap-1">
                 <span className="font-mono text-sm text-[#7AD4FF]">30–60 минут</span>
-                <span className="text-base leading-relaxed text-white/80 sm:text-sm">
+                <span className="text-[17px] leading-relaxed text-white/80 sm:text-sm">
                   Каждый урок — живой прямой эфир. Запись остаётся
                   в доступе.
                 </span>
@@ -399,7 +399,7 @@ export default function SectionFour() {
             <Reveal static delay={200}>
               <div className="flex flex-col gap-1">
                 <span className="font-mono text-sm text-[#7AD4FF]">записи — год</span>
-                <span className="text-base leading-relaxed text-white/80 sm:text-sm">
+                <span className="text-[17px] leading-relaxed text-white/80 sm:text-sm">
                   Доступ ко всем урокам до 5 октября 2027 — ровно год
                   со старта.
                 </span>
@@ -408,7 +408,7 @@ export default function SectionFour() {
             <Reveal delay={240}>
               <div className="flex flex-col gap-1">
                 <span className="font-mono text-sm text-[#7AD4FF]">чат с автором</span>
-                <span className="text-base leading-relaxed text-white/80 sm:text-sm">
+                <span className="text-[17px] leading-relaxed text-white/80 sm:text-sm">
                   Вопросы по внедрению — в чат курса. На них отвечает
                   Мария лично.
                 </span>
@@ -417,7 +417,7 @@ export default function SectionFour() {
             <Reveal delay={280}>
               <div className="flex flex-col gap-1">
                 <span className="font-mono text-sm text-[#7AD4FF]">без домашек</span>
-                <span className="text-base leading-relaxed text-white/80 sm:text-sm">
+                <span className="text-[17px] leading-relaxed text-white/80 sm:text-sm">
                   Практика — внедрение инструмента на данных своего магазина.
                   Если не получается — разбираем в чате.
                 </span>
@@ -426,7 +426,7 @@ export default function SectionFour() {
             <Reveal delay={320}>
               <div className="flex flex-col gap-1">
                 <span className="font-mono text-sm text-[#7AD4FF]">кураторство</span>
-                <span className="text-base leading-relaxed text-white/80 sm:text-sm">
+                <span className="text-[17px] leading-relaxed text-white/80 sm:text-sm">
                   Коллективная прокачка под кураторством автора. Настройка
                   идёт по урокам, шаг за шагом.
                 </span>
@@ -439,7 +439,7 @@ export default function SectionFour() {
         <div id="itog" className="flex flex-col gap-5 rounded-2xl border border-white/10 bg-[#0c1118]/90 p-5 sm:p-6">
           <Reveal static delay={100}>
             <div className="flex flex-wrap items-baseline justify-between gap-2 border-b border-white/10 pb-4">
-              <div className="font-display text-lg font-bold uppercase tracking-tight text-white sm:text-xl">
+              <div className="font-display text-xl font-bold uppercase tracking-tight text-white">
                 Итог курса: система собрана
               </div>
               <div className="font-mono text-xs text-[#7AD4FF]">[ ИТОГ ]</div>
@@ -447,20 +447,20 @@ export default function SectionFour() {
           </Reveal>
 
           <Reveal static delay={160}>
-            <p className="max-w-xl text-base leading-relaxed text-white/85 sm:text-sm">
+            <p className="max-w-xl text-[17px] leading-relaxed text-white/85 sm:text-sm">
               Участник заканчивает курс не папкой с десятью промптами,
               а работающей системой:
             </p>
           </Reveal>
 
-          <div className="grid gap-x-8 gap-y-2.5 sm:grid-cols-2">
+          <div className="grid gap-x-8 gap-y-3 sm:grid-cols-2">
             {OUTCOMES.map((item, i) => (
               <Reveal key={i} delay={180 + i * 30}>
                 <div className="flex items-center gap-3">
                   <span className="flex h-5 w-5 flex-none items-center justify-center rounded border border-[#45C1FF]/60 font-mono text-[11px] leading-none text-[#7AD4FF] shadow-[0_0_10px_rgba(69,193,255,0.35)]">
                     ✓
                   </span>
-                  <span className="text-base leading-snug text-white/90 sm:text-sm">
+                  <span className="text-[17px] leading-snug text-white/90 sm:text-sm">
                     {item}
                   </span>
                 </div>
@@ -472,10 +472,10 @@ export default function SectionFour() {
           <div className="mt-2 grid gap-4 sm:grid-cols-2">
             <Reveal delay={280} className="h-full">
               <div className="flex h-full flex-col gap-2 rounded-xl bg-[#45C1FF]/10 p-4 sm:p-5">
-                <div className="font-mono text-[10px] uppercase tracking-[0.14em] text-[#7AD4FF]">
+                <div className="font-mono text-[11px] uppercase tracking-[0.14em] text-[#7AD4FF]">
                   Главный результат
                 </div>
-                <p className="text-base font-medium leading-relaxed text-white sm:text-lg">
+                <p className="text-lg font-medium leading-relaxed text-white">
                   Руководитель меньше времени тратит на сбор таблиц и ручную
                   подготовку отчётов и больше — на решения, которые влияют
                   на прибыль магазина.
@@ -488,7 +488,7 @@ export default function SectionFour() {
                 <div className="font-mono text-xs uppercase tracking-[0.14em] text-[#7AD4FF]">
                   Старт — 5 октября 2026, 11:00 мск
                 </div>
-                <div className="font-mono text-[11px] uppercase tracking-[0.12em] text-white/60">
+                <div className="font-mono text-xs uppercase tracking-[0.12em] text-white/60">
                   9 месяцев внедрения · записи до 5 октября 2027
                 </div>
                 <a

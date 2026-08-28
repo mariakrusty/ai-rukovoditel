@@ -59,7 +59,7 @@ export default function SectionThree() {
                 — Как тратить меньше времени?
               </div>
             </Reveal>
-            <h2 className="font-display max-w-md text-3xl font-bold uppercase leading-[1.14] tracking-tight text-white drop-shadow-lg sm:text-4xl md:text-5xl">
+            <h2 className="font-display max-w-md text-[clamp(32px,8.6vw,40px)] font-bold uppercase leading-[1.14] tracking-tight text-white drop-shadow-lg sm:text-4xl md:text-5xl">
               <Reveal static as="span" delay={100} className="block">
                 Шесть{' '}
                 <span className="font-sans font-light normal-case italic tracking-normal">
@@ -82,12 +82,12 @@ export default function SectionThree() {
 
         <Reveal static delay={160}>
           <div className="flex max-w-2xl flex-col gap-3">
-            <p className="text-base leading-relaxed text-white/85 drop-shadow-md sm:text-sm">
+            <p className="text-[17px] leading-relaxed text-white/85 drop-shadow-md sm:text-sm">
               В крупном цветочном бизнесе эти задачи распределены между
               руководителями разных направлений. В небольшом магазине большую
               часть этой работы обычно выполняет сам владелец.
             </p>
-            <p className="text-base leading-relaxed text-white drop-shadow-md sm:text-sm">
+            <p className="text-[17px] leading-relaxed text-white drop-shadow-md sm:text-sm">
               AI-помощники подключаются к CRM, кассам, банковским данным
               и Telegram, автоматически собирают и сводят информацию, проводят
               первичный анализ и показывают руководителю, что требует решения.{' '}
@@ -106,25 +106,25 @@ export default function SectionThree() {
                   <span>[ {member.n} ]</span>
                   <span className="uppercase">{member.lessons}</span>
                 </div>
-                <div className="font-display text-base font-semibold leading-snug text-white sm:text-[17px]">
+                <div className="font-display text-xl font-semibold leading-snug text-white sm:text-[17px]">
                   {member.name}
                 </div>
-                <p className="text-base leading-relaxed text-white/75 sm:text-sm">
+                <p className="text-[17px] leading-relaxed text-white/75 sm:text-sm">
                   {member.role}
                 </p>
                 <div className="mt-auto border-t border-white/10 pt-3">
                   {member.salary ? (
                     <div className="flex flex-col gap-0.5">
-                      <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-white/40">
+                      <span className="font-mono text-[11px] uppercase tracking-[0.12em] text-white/40">
                         роль на рынке
                       </span>
-                      <span className="font-mono text-sm text-[#7AD4FF]">
+                      <span className="font-mono text-[15px] text-[#7AD4FF] sm:text-sm">
                         {member.salary}
                       </span>
                     </div>
                   ) : (
                     <div className="flex flex-col gap-0.5">
-                      <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-white/40">
+                      <span className="font-mono text-[11px] uppercase tracking-[0.12em] text-white/40">
                         отдельной ставки нет
                       </span>
                       <span className="font-mono text-sm text-white/60">
@@ -139,7 +139,7 @@ export default function SectionThree() {
         </div>
 
         <Reveal delay={200}>
-          <div className="font-mono text-[11px] uppercase tracking-[0.12em] text-white/45 drop-shadow-md sm:text-xs">
+          <div className="font-mono text-xs uppercase tracking-[0.12em] text-white/45 drop-shadow-md">
             Суммы — стоимость роли на рынке, а не обещание замены сотрудника ·
             отдельные вакансии hh.ru, Москва и СПб, август 2026
           </div>
@@ -151,7 +151,7 @@ export default function SectionThree() {
             <div className="font-mono text-xs uppercase tracking-[0.14em] text-white/60">
               Как изменится обычный день
             </div>
-            <p className="max-w-3xl text-base leading-relaxed text-white/85 sm:text-sm">
+            <p className="max-w-3xl text-[17px] leading-relaxed text-white/85 sm:text-sm">
               Вчера администраторы прислали выручку по каналам, обращения
               и причины отказов. Бухгалтерия добавила платежи, из учётной
               системы пришли остатки и списания.{' '}
@@ -165,7 +165,7 @@ export default function SectionThree() {
         </Reveal>
 
         <Reveal delay={260}>
-          <p className="max-w-2xl text-base leading-relaxed text-white drop-shadow-md sm:text-sm">
+          <p className="max-w-2xl text-[17px] leading-relaxed text-white drop-shadow-md sm:text-sm">
             9 уроков закрывают 10 главных вопросов собственника — силами
             шести AI-помощников. Каких — в программе ниже.
           </p>

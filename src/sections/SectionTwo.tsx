@@ -33,16 +33,16 @@ export default function SectionTwo() {
   return (
     <section id="pairs" className="relative flex flex-col">
       {/* мобильный мостик: что это за курс + живая лента (с хиро переехало сюда) */}
-      <div className="flex flex-col gap-4 px-5 pt-2 sm:hidden">
+      <div className="flex flex-col gap-5 px-5 pt-2 sm:hidden">
         <Reveal static>
-          <p className="text-base leading-relaxed text-white drop-shadow-md">
+          <p className="text-[17px] leading-relaxed text-white drop-shadow-md">
             За 9 уроков вы соберёте шесть AI-помощников для ассортимента,
             закупки, денег, продаж, команды и процессов — и будете принимать
             решения по данным, а не по интуиции.
           </p>
         </Reveal>
         <Reveal static>
-          <p className="text-[13px] leading-relaxed text-white/70 drop-shadow-md">
+          <p className="text-[15px] leading-relaxed text-white/70 drop-shadow-md">
             Подходит офлайн-магазинам, интернет-магазинам и смешанному формату:
             мы работаем не с сайтом или витриной, а с управленческими данными.
           </p>
@@ -59,7 +59,7 @@ export default function SectionTwo() {
             </div>
           </Reveal>
 
-          <h2 className="font-display text-3xl font-bold uppercase leading-[1.14] tracking-tight text-white drop-shadow-lg sm:text-4xl md:text-5xl">
+          <h2 className="font-display text-[clamp(32px,8.6vw,40px)] font-bold uppercase leading-[1.14] tracking-tight text-white drop-shadow-lg sm:text-4xl md:text-5xl">
             <Reveal static as="span" delay={100} className="block">
               По цифрам,
             </Reveal>
@@ -77,7 +77,7 @@ export default function SectionTwo() {
           </Reveal>
 
           <Reveal static delay={420}>
-            <p className="max-w-xs text-base leading-relaxed text-white/85 drop-shadow-md sm:text-sm">
+            <p className="max-w-xs text-[17px] leading-relaxed text-white/85 drop-shadow-md sm:text-sm">
               Слева — магазин, который живёт на ощущениях. Справа — тот же
               магазин после курса: где переплачиваем, где теряем, где
               недозарабатываем. Цифры условные — на курсе каждый считает свои.
@@ -89,10 +89,10 @@ export default function SectionTwo() {
           {PAIRS.map((pair, i) => (
             <Reveal key={i} delay={200 + i * 90}>
               <div className="grid gap-2 border-t border-white/15 py-5 sm:grid-cols-[1fr_1.15fr] sm:gap-6">
-                <p className="text-base leading-relaxed text-white/55 drop-shadow-md sm:text-sm">
+                <p className="text-[17px] leading-relaxed text-white/55 drop-shadow-md sm:text-sm">
                   {pair.was}
                 </p>
-                <p className="text-base leading-relaxed text-white drop-shadow-md sm:text-sm">
+                <p className="text-[17px] leading-relaxed text-white drop-shadow-md sm:text-sm">
                   {pair.now}
                 </p>
               </div>
