@@ -117,7 +117,7 @@ export default function AssistantFeed() {
   const msg = deck[index]
 
   return (
-    <div className="w-full rounded-2xl rounded-tl-md border border-white/20 bg-black/60 p-4 backdrop-blur-sm short:p-3">
+    <div className="w-full rounded-2xl rounded-tl-md bg-black/60 p-4 backdrop-blur-sm short:p-3">
       {/* key перезапускает анимацию входа на каждом сообщении */}
       <div key={index} className="msg-enter">
         <div className="mb-2 flex items-center justify-between font-mono text-xs uppercase tracking-[0.12em] text-white/50">

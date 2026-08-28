@@ -287,7 +287,7 @@ export default function SectionFour() {
           ].map(([label, text]) => (
             <div
               key={label}
-              className="flex flex-col gap-1 rounded-2xl border border-white/12 bg-[#070c13]/[0.94] p-6"
+              className="flex flex-col gap-1 rounded-2xl bg-[#070c13]/[0.94] p-6"
             >
               <span className="font-mono text-[12px] uppercase tracking-[0.16em] text-[#7AD4FF]">
                 {label}
@@ -365,7 +365,7 @@ export default function SectionFour() {
           <div className="font-mono text-xs uppercase tracking-[0.14em] text-white/60 drop-shadow-md">
             Что понадобится для работы
           </div>
-          <div className="overflow-hidden rounded-[20px] border border-white/12 bg-[#070c13]/[0.94] backdrop-blur-xl">
+          <div className="overflow-hidden rounded-[20px] bg-[#070c13]/[0.94] backdrop-blur-xl">
             {[
               {
                 title: 'Техника и подписки',
@@ -422,7 +422,7 @@ export default function SectionFour() {
           </div>
         </div>
 
-        <div className="hidden gap-6 rounded-[20px] border border-white/12 bg-[#070c13]/[0.94] p-5 sm:grid sm:grid-cols-2 sm:gap-10 sm:p-[30px]">
+        <div className="hidden gap-6 rounded-[20px] bg-[#070c13]/[0.94] p-5 sm:grid sm:grid-cols-2 sm:gap-10 sm:p-[30px]">
           <Reveal static delay={80}>
             <div className="flex h-full flex-col gap-3">
               <div className="font-mono text-[14px] uppercase tracking-[0.14em] text-white/60">
@@ -457,7 +457,7 @@ export default function SectionFour() {
         </div>
 
         {/* Как устроено обучение: три главных показателя + условия */}
-        <div className="flex flex-col gap-6 rounded-[20px] border border-white/12 bg-[#070c13]/[0.94] p-6 backdrop-blur-md sm:gap-8 sm:p-[30px]">
+        <div className="flex flex-col gap-6 rounded-[20px] bg-[#070c13]/[0.94] p-6 backdrop-blur-md sm:gap-8 sm:p-[30px]">
           <Reveal static>
             <div className="font-mono text-xs uppercase tracking-[0.14em] text-white/60">
               Как устроено обучение
@@ -507,7 +507,7 @@ export default function SectionFour() {
         </div>
 
         {/* Итог курса: крупный тезис + четыре группы инструментов */}
-        <div id="itog" className="flex flex-col gap-6 rounded-[20px] border border-white/12 bg-[#070c13]/[0.94] p-6 backdrop-blur-md sm:p-[30px]">
+        <div id="itog" className="flex flex-col gap-6 rounded-[20px] bg-[#070c13]/[0.94] p-6 backdrop-blur-md sm:p-[30px]">
           <Reveal static>
             <div className="flex flex-wrap items-baseline justify-between gap-2 border-b border-white/12 pb-4">
               <div className="font-mono text-xs uppercase tracking-[0.14em] text-white/60">
@@ -524,7 +524,7 @@ export default function SectionFour() {
             </h3>
           </Reveal>
 
-          <div className="overflow-hidden rounded-2xl border border-white/12">
+          <div className="overflow-hidden rounded-2xl">
             {[
               { title: 'Товар и закупка', items: OUTCOMES.slice(0, 4) },
               { title: 'Деньги', items: OUTCOMES.slice(4, 6) },
@@ -567,7 +567,7 @@ export default function SectionFour() {
           {/* финал: результат слева, действие справа */}
           <div className="mt-2 grid gap-4 sm:grid-cols-2">
             <Reveal static delay={280} className="h-full">
-              <div className="flex h-full flex-col gap-3 rounded-2xl border border-[#45C1FF]/40 bg-[#0d1a26] p-6 sm:p-[30px]">
+              <div className="flex h-full flex-col gap-3 rounded-2xl bg-[#0d1a26] p-6 sm:p-[30px]">
                 <div className="font-mono text-xs uppercase tracking-[0.14em] text-white/60">
                   Главный результат
                 </div>
@@ -583,7 +583,7 @@ export default function SectionFour() {
             </Reveal>
 
             <Reveal static delay={340} className="h-full">
-              <div className="flex h-full flex-col items-start justify-center gap-3 rounded-2xl border border-[#45C1FF]/40 bg-[#081420] p-6 sm:p-[30px]">
+              <div className="flex h-full flex-col items-start justify-center gap-3 rounded-2xl bg-[#081420] p-6 sm:p-[30px]">
                 <div className="font-mono text-xs uppercase tracking-[0.14em] text-[#7AD4FF]">
                   Старт — 5 октября 2026, 11:00 мск
                 </div>

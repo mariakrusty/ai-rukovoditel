@@ -131,7 +131,7 @@ export default function SectionTwo() {
         </Reveal>
 
         <Reveal static>
-          <div className="overflow-hidden rounded-[20px] border border-white/12 bg-[#070c13]/[0.94] backdrop-blur-xl">
+          <div className="overflow-hidden rounded-[20px] bg-[#070c13]/[0.94] backdrop-blur-xl">
             {CASES.map((c, i) => (
               <details
                 key={i}
@@ -202,7 +202,7 @@ export default function SectionTwo() {
 
         <div className="grid gap-6 sm:grid-cols-[minmax(280px,1fr)_1.8fr]">
           {/* список задач */}
-          <div className="flex flex-col overflow-hidden rounded-[20px] border border-white/12 bg-[#070c13]/[0.94]">
+          <div className="flex flex-col overflow-hidden rounded-[20px] bg-[#070c13]/[0.94]">
             {CASES.map((c, i) => (
               <button
                 key={i}
@@ -236,7 +236,7 @@ export default function SectionTwo() {
           {/* активный кейс */}
           <div
             key={active}
-            className="case-enter flex min-h-[220px] flex-col gap-6 rounded-[20px] border border-white/12 bg-[#070c13]/[0.94] p-8"
+            className="case-enter flex min-h-[220px] flex-col gap-6 rounded-[20px] bg-[#070c13]/[0.94] p-8"
           >
             <div className="flex items-baseline justify-between gap-4">
               <span className="text-[22px] font-medium text-white/96">

@@ -34,7 +34,7 @@ export default function SectionOne() {
           </Reveal>
         </h1>
 
-        <div className="flex w-full max-w-sm flex-col items-start sm:mt-48 short:mt-36">
+        <div className="flex w-full max-w-sm flex-col items-start sm:mt-36 short:mt-28">
           <Reveal delay={400} className="order-1 hidden w-full sm:order-none sm:block">
             <div className="mb-5 flex w-full items-center justify-between font-mono text-white sm:mb-7 short:mb-3">
               <span className="text-lg">( A )</span>

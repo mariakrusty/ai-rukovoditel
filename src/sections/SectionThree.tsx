@@ -122,7 +122,7 @@ export default function SectionThree() {
 
         {/* мобильный аккордеон помощников */}
         <Reveal static className="sm:hidden">
-          <div className="overflow-hidden rounded-[20px] border border-white/12 bg-[#070c13]/[0.94] backdrop-blur-xl">
+          <div className="overflow-hidden rounded-[20px] bg-[#070c13]/[0.94] backdrop-blur-xl">
             {CREW.map((member, i) => (
               <details
                 key={member.n}
@@ -190,7 +190,7 @@ export default function SectionThree() {
         <div className="hidden gap-4 sm:grid sm:grid-cols-2">
           {CREW.map((member) => (
             <Reveal static key={member.n} className="h-full">
-              <div className="flex h-full min-h-[230px] flex-col gap-4 rounded-[20px] border border-white/12 bg-[#070c13]/[0.94] p-[30px]">
+              <div className="flex h-full min-h-[230px] flex-col gap-4 rounded-[20px] bg-[#070c13]/[0.94] p-[30px]">
                 <div className="flex items-baseline justify-between font-mono text-[13px] tracking-[0.1em] text-white/58">
                   <span>[ {member.n} ]</span>
                   <span className="uppercase">{member.lessons}</span>
@@ -239,7 +239,7 @@ export default function SectionThree() {
 
         {/* Утро AI-руководителя — редакционная сцена */}
         <Reveal static>
-          <div className="flex flex-col gap-6 rounded-[20px] border border-white/12 bg-[#070c13]/[0.94] p-6 backdrop-blur-xl sm:gap-8 sm:p-8">
+          <div className="flex flex-col gap-6 rounded-[20px] bg-[#070c13]/[0.94] p-6 backdrop-blur-xl sm:gap-8 sm:p-8">
             <div className="font-mono text-xs uppercase tracking-[0.14em] text-white/58">
               Как начинается утро AI-руководителя
             </div>
@@ -286,7 +286,7 @@ export default function SectionThree() {
 
         {/* связка с программой */}
         <Reveal static className="sm:hidden">
-          <div className="rounded-xl border border-white/12 bg-[#070c13]/[0.94] px-5 py-4 text-center font-mono text-[13px] uppercase leading-relaxed tracking-[0.1em] text-white/96">
+          <div className="rounded-xl bg-[#070c13]/[0.94] px-5 py-4 text-center font-mono text-[13px] uppercase leading-relaxed tracking-[0.1em] text-white/96">
             9 уроков → 10 инструментов
             <span className="block text-[#7AD4FF]">→ 6 AI-помощников</span>
           </div>
