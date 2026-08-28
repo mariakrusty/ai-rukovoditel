@@ -1,6 +1,7 @@
 import { Plus, Share2 } from 'lucide-react'
 import Reveal from '../components/Reveal'
 import useIsMobile from '../useIsMobile'
+import { Pos } from '../components/Signals'
 import { ASSISTANT_URL, SIGNUP_URL } from '../config'
 
 type Lesson = {
@@ -552,7 +553,7 @@ export default function SectionFour() {
           <Reveal static delay={160}>
             <p className="max-w-xl text-[17px] leading-relaxed text-white/85 sm:text-sm">
               Участник заканчивает курс не папкой с десятью промптами,
-              а работающей системой:
+              а <Pos>работающей системой</Pos>:
             </p>
           </Reveal>
 
@@ -620,8 +621,8 @@ export default function SectionFour() {
                 </div>
                 <p className="text-lg font-medium leading-relaxed text-white">
                   Руководитель меньше времени тратит на сбор таблиц и ручную
-                  подготовку отчётов и больше — на решения, которые влияют
-                  на прибыль магазина.
+                  подготовку отчётов и больше — на{' '}
+                  <Pos>решения, которые влияют на прибыль магазина</Pos>.
                 </p>
               </div>
             </Reveal>

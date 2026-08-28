@@ -12,6 +12,12 @@
   font-display: swap;
 }
 
+/* смысловые цветовые сигналы */
+:root {
+  --color-negative-signal: #FF5C5C; /* проблема, потеря, риск */
+  --color-positive-signal: #7AD4FF; /* данные, решение AI, результат */
+}
+
 /* мобильный «режим чтения»: абзацы — Onest; десктоп — ShareTechMono (утверждён) */
 body {
   font-family: 'Onest', system-ui, sans-serif;

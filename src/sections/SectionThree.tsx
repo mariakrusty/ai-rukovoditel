@@ -1,5 +1,6 @@
 import { Plus, Share2 } from 'lucide-react'
 import Reveal from '../components/Reveal'
+import { Neg, Pos } from '../components/Signals'
 
 // Карточки ролей. Первая строка — узнаваемая работа владельца,
 // «Матрица» — первым словом первого помощника.
@@ -175,7 +176,7 @@ export default function SectionThree() {
                     </p>
                   </div>
                   <div className="flex flex-col gap-1">
-                    <span className="font-mono text-[11px] uppercase tracking-[0.14em] text-white/45">
+                    <span className="font-mono text-[11px] uppercase tracking-[0.14em] text-[#7AD4FF]/60">
                       Результат для руководителя
                     </span>
                     <p className="text-[16px] leading-[1.55] text-white/90">
@@ -268,9 +269,10 @@ export default function SectionThree() {
               и причины отказов. Бухгалтерия добавила платежи, из учётной
               системы пришли остатки и списания.{' '}
               <span className="text-white">
-                Утром AI-руководитель собрал один отчёт: где потеряли клиентов,
-                что заканчивается, что рискуем списать, сколько денег находится
-                в кассах и банках и какие платежи предстоят.
+                Утром AI-руководитель собрал <Pos>один отчёт</Pos>:{' '}
+                <Neg>где потеряли клиентов</Neg>, что заканчивается, что рискуем
+                списать, сколько денег находится в кассах и банках и какие
+                платежи предстоят.
               </span>
             </p>
           </div>
@@ -293,17 +295,17 @@ export default function SectionThree() {
               </p>
             </div>
             <div className="flex flex-col gap-1">
-              <span className="font-mono text-[11px] uppercase tracking-[0.14em] text-white/45">
+              <span className="font-mono text-[11px] uppercase tracking-[0.14em] text-[#7AD4FF]/70">
                 Что собрал AI
               </span>
               <p className="text-[16px] leading-[1.55] text-white/90">
-                Утром — один отчёт: где потеряли клиентов, что заканчивается,
-                что рискуем списать, сколько денег находится в кассах и банках
-                и какие платежи предстоят.
+                <Pos>Утром — один отчёт</Pos>: <Neg>где потеряли клиентов</Neg>,
+                что заканчивается, что рискуем списать, сколько денег находится
+                в кассах и банках и какие платежи предстоят.
               </p>
             </div>
             <div className="flex flex-col gap-1">
-              <span className="font-mono text-[11px] uppercase tracking-[0.14em] text-[#7AD4FF]">
+              <span className="font-mono text-[11px] uppercase tracking-[0.14em] text-white/70">
                 Решение — за владельцем
               </span>
               <p className="text-[16px] leading-[1.55] text-white">
