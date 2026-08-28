@@ -38,18 +38,6 @@ export default function Navbar() {
         <Reveal delay={100}>
           <div className="flex items-center gap-3">
             <a
-              href="#assistants"
-              className="font-mono text-[11px] text-white/80 drop-shadow-md"
-            >
-              помощники
-            </a>
-            <a
-              href="#season"
-              className="font-mono text-[11px] text-white/80 drop-shadow-md"
-            >
-              программа
-            </a>
-            <a
               href={ASSISTANT_URL}
               target="_blank"
               rel="noreferrer"

@@ -1,34 +1,114 @@
 import { useEffect, useRef, useState } from 'react'
 
 const VIDEO_SRC = `${import.meta.env.BASE_URL}hero.mp4`
+const VIDEO_MOBILE_SRC = `${import.meta.env.BASE_URL}hero-mobile.mp4`
 const POSTER_SRC = `${import.meta.env.BASE_URL}poster.png`
+const POSTER_MOBILE_SRC = `${import.meta.env.BASE_URL}poster-mobile.png`
 const MAX_WIDTH = 1280
 const FPS = 24
 const MIN_FRAMES = 30
 const MAX_FRAMES = 120
 
-const IS_IOS =
-  typeof navigator !== 'undefined' &&
-  (/iP(hone|ad|od)/.test(navigator.userAgent) ||
-    (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1))
+function useIsMobile() {
+  const [mobile, setMobile] = useState(
+    () => window.matchMedia('(max-width: 639px)').matches,
+  )
+  useEffect(() => {
+    const mq = window.matchMedia('(max-width: 639px)')
+    const onChange = () => setMobile(mq.matches)
+    mq.addEventListener('change', onChange)
+    return () => mq.removeEventListener('change', onChange)
+  }, [])
+  return mobile
+}
 
 /**
- * Фон на весь экран: видео, перемотанное скроллом.
- * Три уровня надёжности:
- * 1) кадры, нарезанные в ImageBitmap (десктоп) — плавный скраб;
- * 2) прямая отрисовка <video> на канвас (iOS и всё остальное);
- * 3) постер-кадр — рисуется мгновенно и до того, как видео оживёт.
- * На iOS нарезка не запускается вовсе (двойная загрузка ни к чему),
- * а декодер будится play→pause и повторно — по первому касанию.
+ * Мобильный фон: обычный видимый <video> — autoplay, muted,
+ * playsinline, loop. Под ним вертикальный постер: если видео
+ * не запустилось, посетитель видит кадр, а не черноту.
+ * Затемнение — градиентом: верх слегка, центр почти чистый,
+ * низ плотнее под текст.
  */
-export default function ScrollVideo() {
+function MobileVideo() {
+  const videoRef = useRef<HTMLVideoElement>(null)
+  const [srcIndex, setSrcIndex] = useState(0)
+  // сперва пробуем вертикальный ролик; если его нет — обычный
+  const sources = [VIDEO_MOBILE_SRC, VIDEO_SRC]
+
+  useEffect(() => {
+    const video = videoRef.current
+    if (!video) return
+
+    // ограничение движения: останавливаем на первом кадре
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      const stop = () => video.pause()
+      video.addEventListener('loadeddata', stop, { once: true })
+      return () => video.removeEventListener('loadeddata', stop)
+    }
+
+    // энергосбережение iOS: автоплей заблокирован до первого жеста
+    const kick = () => {
+      video.play().catch(() => {})
+    }
+    const gestureKick = () => {
+      if (video.paused) kick()
+      else {
+        window.removeEventListener('touchstart', gestureKick)
+        window.removeEventListener('pointerdown', gestureKick)
+        window.removeEventListener('scroll', gestureKick)
+      }
+    }
+    window.addEventListener('touchstart', gestureKick, { passive: true })
+    window.addEventListener('pointerdown', gestureKick, { passive: true })
+    window.addEventListener('scroll', gestureKick, { passive: true })
+    return () => {
+      window.removeEventListener('touchstart', gestureKick)
+      window.removeEventListener('pointerdown', gestureKick)
+      window.removeEventListener('scroll', gestureKick)
+    }
+  }, [srcIndex])
+
+  return (
+    <>
+      {/* постер-подложка: виден, пока видео не отдало кадр */}
+      <img
+        src={POSTER_MOBILE_SRC}
+        alt=""
+        aria-hidden
+        className="absolute inset-0 h-full w-full object-cover"
+      />
+      <video
+        ref={videoRef}
+        src={sources[srcIndex]}
+        poster={POSTER_MOBILE_SRC}
+        autoPlay
+        muted
+        playsInline
+        loop
+        preload="metadata"
+        onError={() => {
+          if (srcIndex < sources.length - 1) setSrcIndex(srcIndex + 1)
+        }}
+        className="absolute inset-0 h-full w-full object-cover object-[38%_center]"
+      />
+      {/* градиент вместо сплошного затемнения */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/35 via-black/10 to-black/70" />
+    </>
+  )
+}
+
+/**
+ * Десктопный фон: видео перематывается скроллом.
+ * Кадры нарезаются в ImageBitmap и рисуются на канвасе;
+ * пока нарезка идёт — рисуем сам <video>, до него — постер.
+ */
+function DesktopVideo() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const videoRef = useRef<HTMLVideoElement>(null)
   const framesRef = useRef<ImageBitmap[]>([])
   const posterRef = useRef<HTMLImageElement | null>(null)
   const [ready, setReady] = useState(false)
 
-  // ── постер: гарантированная картинка с первой секунды ──
   useEffect(() => {
     const img = new Image()
     img.src = POSTER_SRC
@@ -37,9 +117,8 @@ export default function ScrollVideo() {
     }
   }, [])
 
-  // ── нарезка кадров (не на iOS) ──
+  // ── нарезка кадров ──
   useEffect(() => {
-    if (IS_IOS) return
     let cancelled = false
     let objectUrl: string | null = null
     const bitmaps: ImageBitmap[] = []
@@ -141,7 +220,6 @@ export default function ScrollVideo() {
     let lastIndex = -1
     let seeking = false
     let lastSeekTime = -1
-    let videoAlive = false
     let posterDrawn = false
 
     const resize = () => {
@@ -160,11 +238,7 @@ export default function ScrollVideo() {
       if (target > 1) target = 1
     }
 
-    const drawCover = (
-      source: CanvasImageSource,
-      sw: number,
-      sh: number,
-    ) => {
+    const drawCover = (source: CanvasImageSource, sw: number, sh: number) => {
       if (!sw || !sh) return
       const cw = canvas.width
       const ch = canvas.height
@@ -180,33 +254,14 @@ export default function ScrollVideo() {
     }
     video?.addEventListener('seeked', onSeeked)
 
-    // будим декодер: iOS не отдаёт кадр, пока видео не «поиграло»
     const kick = () => {
-      if (!video) return
       video
-        .play()
-        .then(() => {
-          video.pause()
-          videoAlive = true
-        })
-        .catch(() => {
-          /* энергосбережение — ждём жеста */
-        })
-    }
-    const gestureKick = () => {
-      if (!videoAlive) kick()
-      if (videoAlive) {
-        window.removeEventListener('touchstart', gestureKick)
-        window.removeEventListener('pointerdown', gestureKick)
-        window.removeEventListener('scroll', gestureKick)
-      }
+        ?.play()
+        .then(() => video.pause())
+        .catch(() => {})
     }
     video?.addEventListener('loadeddata', kick, { once: true })
     if (video && video.readyState >= 2) kick()
-    // первый жест пользователя снимает запрет автоплея (Low Power Mode)
-    window.addEventListener('touchstart', gestureKick, { passive: true })
-    window.addEventListener('pointerdown', gestureKick, { passive: true })
-    window.addEventListener('scroll', gestureKick, { passive: true })
 
     const tick = () => {
       smoothed += (target - smoothed) * 0.1
@@ -236,7 +291,6 @@ export default function ScrollVideo() {
         drawCover(video, video.videoWidth, video.videoHeight)
         posterDrawn = false
       } else if (posterRef.current && !posterDrawn) {
-        // видео ещё не ожило — держим постер, чтобы фон не был чёрным
         drawCover(
           posterRef.current,
           posterRef.current.naturalWidth,
@@ -260,35 +314,13 @@ export default function ScrollVideo() {
       cancelAnimationFrame(raf)
       window.removeEventListener('scroll', readScroll)
       window.removeEventListener('resize', resize)
-      window.removeEventListener('touchstart', gestureKick)
-      window.removeEventListener('pointerdown', gestureKick)
-      window.removeEventListener('scroll', gestureKick)
       video?.removeEventListener('seeked', onSeeked)
       video?.removeEventListener('loadeddata', kick)
     }
   }, [ready])
 
-  // ── отладка: ?debug=1 показывает состояние прямо на странице ──
-  const [debugInfo, setDebugInfo] = useState('')
-  useEffect(() => {
-    if (!location.search.includes('debug=1')) return
-    const t = window.setInterval(() => {
-      const v = videoRef.current
-      setDebugInfo(
-        [
-          `ios:${IS_IOS ? 1 : 0}`,
-          `frames:${framesRef.current.length}`,
-          `video:${v ? `rs${v.readyState} d${isFinite(v.duration) ? v.duration.toFixed(1) : '?'} err${v.error ? v.error.code : 0}` : 'нет'}`,
-          `poster:${posterRef.current ? 'ок' : 'нет'}`,
-          `bitmap:${typeof createImageBitmap !== 'undefined' ? 'да' : 'нет'}`,
-        ].join(' · '),
-      )
-    }, 700)
-    return () => window.clearInterval(t)
-  }, [])
-
   return (
-    <div className="fixed inset-0 -z-10 bg-[#0a0a0a]">
+    <>
       {!ready && (
         <video
           ref={videoRef}
@@ -305,11 +337,15 @@ export default function ScrollVideo() {
         className="absolute inset-0 h-full w-full brightness-[0.55] contrast-[0.9]"
       />
       <div className="absolute inset-0 bg-black/40" />
-      {debugInfo && (
-        <div className="absolute bottom-2 left-2 z-50 rounded bg-black/80 px-2 py-1 font-mono text-[10px] text-lime-300">
-          {debugInfo}
-        </div>
-      )}
+    </>
+  )
+}
+
+export default function ScrollVideo() {
+  const isMobile = useIsMobile()
+  return (
+    <div className="fixed inset-0 -z-10 bg-[#0a0a0a]">
+      {isMobile ? <MobileVideo /> : <DesktopVideo />}
     </div>
   )
 }

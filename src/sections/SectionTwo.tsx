@@ -1,5 +1,6 @@
 import { Share2 } from 'lucide-react'
 import Reveal from '../components/Reveal'
+import AssistantFeed from '../components/AssistantFeed'
 
 const PAIRS: { was: string; now: string }[] = [
   {
@@ -31,6 +32,25 @@ const PAIRS: { was: string; now: string }[] = [
 export default function SectionTwo() {
   return (
     <section id="pairs" className="relative flex flex-col">
+      {/* мобильный мостик: что это за курс + живая лента (с хиро переехало сюда) */}
+      <div className="flex flex-col gap-4 px-5 pt-2 sm:hidden">
+        <Reveal static>
+          <p className="text-base leading-relaxed text-white drop-shadow-md">
+            За 9 уроков вы соберёте шесть AI-помощников для ассортимента,
+            закупки, денег, продаж, команды и процессов — и будете принимать
+            решения по данным, а не по интуиции.
+          </p>
+        </Reveal>
+        <Reveal static>
+          <p className="text-[13px] leading-relaxed text-white/70 drop-shadow-md">
+            Подходит офлайн-магазинам, интернет-магазинам и смешанному формату:
+            мы работаем не с сайтом или витриной, а с управленческими данными.
+          </p>
+        </Reveal>
+        <Reveal delay={100}>
+          <AssistantFeed />
+        </Reveal>
+      </div>
       <div className="relative flex flex-col gap-10 px-5 py-12 sm:flex-row sm:items-start sm:justify-between sm:gap-8 sm:px-8 sm:py-16 md:px-12">
         <div className="flex flex-col gap-8 sm:max-w-sm">
           <Reveal static delay={60}>
