@@ -91,6 +91,7 @@ export default function ScrollVideo() {
           bitmaps.push(bitmap)
         }
 
+        if (bitmaps.length < 10) return // iOS не отдал кадры — остаёмся на живом видео
         framesRef.current = bitmaps
         setReady(true)
       } catch {
@@ -137,14 +138,18 @@ export default function ScrollVideo() {
       if (target > 1) target = 1
     }
 
-    const drawCover = (bitmap: ImageBitmap) => {
+    const drawCover = (
+      source: ImageBitmap | HTMLVideoElement,
+      sw: number,
+      sh: number,
+    ) => {
+      if (!sw || !sh) return
       const cw = canvas.width
       const ch = canvas.height
-      const scale = Math.max(cw / bitmap.width, ch / bitmap.height)
-      const dw = bitmap.width * scale
-      const dh = bitmap.height * scale
-      ctx.clearRect(0, 0, cw, ch)
-      ctx.drawImage(bitmap, (cw - dw) / 2, (ch - dh) / 2, dw, dh)
+      const scale = Math.max(cw / sw, ch / sh)
+      const dw = sw * scale
+      const dh = sh * scale
+      ctx.drawImage(source, (cw - dw) / 2, (ch - dh) / 2, dw, dh)
     }
 
     const video = videoRef.current
@@ -152,6 +157,17 @@ export default function ScrollVideo() {
       seeking = false
     }
     video?.addEventListener('seeked', onSeeked)
+
+    // iOS не декодирует кадр без старта воспроизведения:
+    // короткий play→pause заставляет показать первый кадр
+    const kick = () => {
+      video
+        ?.play()
+        .then(() => video.pause())
+        .catch(() => {})
+    }
+    video?.addEventListener('loadeddata', kick, { once: true })
+    if (video && video.readyState >= 2) kick()
 
     const tick = () => {
       smoothed += (target - smoothed) * 0.1
@@ -164,7 +180,7 @@ export default function ScrollVideo() {
         )
         if (index !== lastIndex) {
           lastIndex = index
-          drawCover(frames[index])
+          drawCover(frames[index], frames[index].width, frames[index].height)
         }
       } else if (video && video.duration && isFinite(video.duration)) {
         const time = smoothed * Math.max(0, video.duration - 0.05)
@@ -172,6 +188,10 @@ export default function ScrollVideo() {
           seeking = true
           lastSeekTime = time
           video.currentTime = time
+        }
+        // рисуем текущий кадр видео прямо на канвас — работает и на iOS
+        if (video.readyState >= 2) {
+          drawCover(video, video.videoWidth, video.videoHeight)
         }
       }
 
@@ -191,6 +211,7 @@ export default function ScrollVideo() {
       window.removeEventListener('scroll', readScroll)
       window.removeEventListener('resize', resize)
       video?.removeEventListener('seeked', onSeeked)
+      video?.removeEventListener('loadeddata', kick)
     }
   }, [ready])
 
@@ -203,7 +224,7 @@ export default function ScrollVideo() {
           muted
           playsInline
           preload="auto"
-          className="absolute inset-0 h-full w-full object-cover brightness-[0.55] contrast-[0.9]"
+          className="pointer-events-none absolute h-px w-px opacity-0"
         />
       )}
       <canvas ref={canvasRef} className="absolute inset-0 h-full w-full brightness-[0.55] contrast-[0.9]" />
