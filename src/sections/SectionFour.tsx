@@ -1,5 +1,6 @@
 import { Plus, Share2 } from 'lucide-react'
 import Reveal from '../components/Reveal'
+import useIsMobile from '../useIsMobile'
 import { ASSISTANT_URL, SIGNUP_URL } from '../config'
 
 type Lesson = {
@@ -183,9 +184,10 @@ function Field({ label, children }: { label: string; children: string }) {
 }
 
 export default function SectionFour() {
+  const isMobile = useIsMobile()
   return (
     <section id="season" className="relative flex flex-col">
-      <div className="relative mx-auto flex w-full max-w-[1340px] flex-col gap-6 px-5 py-12 sm:gap-10 sm:px-8 sm:py-16 md:px-12">
+      <div className="relative mx-auto flex w-full max-w-[1340px] flex-col gap-6 px-5 py-16 sm:gap-10 sm:px-8 md:px-12">
         {/* верхняя строка: вопрос слева, счётчик справа */}
         <div className="flex items-baseline justify-between gap-4">
           <Reveal static delay={60}>
@@ -247,7 +249,7 @@ export default function SectionFour() {
           </Reveal>
 
           {/* почему чисел два — на виду, не в раскрытии */}
-          <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between sm:gap-8">
+          <div className="hidden sm:flex sm:items-start sm:justify-between sm:gap-8">
             <Reveal static delay={340}>
               <p className="max-w-xl text-[17px] leading-relaxed text-white/85 drop-shadow-md sm:text-sm">
                 Девятимесячная программа внедрения. Один инструмент в месяц,
@@ -265,7 +267,7 @@ export default function SectionFour() {
         </div>
 
         {/* дуга сезона — на всю ширину, крупно */}
-        <Reveal static delay={160}>
+        <Reveal static delay={160} className="hidden sm:block">
           <p className="border-y border-white/15 py-5 text-[17px] leading-relaxed text-white drop-shadow-md sm:text-lg">
             <span className="text-white/60">До высокого сезона</span> — товар,
             закупка и клиенты.{' '}
@@ -277,8 +279,29 @@ export default function SectionFour() {
           </p>
         </Reveal>
 
+        {/* дуга сезона — мобильная схема из трёх этапов */}
+        <div className="flex flex-col gap-2 sm:hidden">
+          {[
+            ['До высокого сезона', 'Товар, поставщики, закупка и клиентская база.'],
+            ['В сезон', 'Контроль входящих обращений и работы отдела продаж.'],
+            ['После сезона', 'Прибыль, деньги, команда, процессы и единая система управления.'],
+          ].map(([label, text]) => (
+            <div
+              key={label}
+              className="flex flex-col gap-1 rounded-xl border border-white/10 bg-[#0a0e14]/95 p-4"
+            >
+              <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-[#7AD4FF]">
+                {label}
+              </span>
+              <span className="text-[16px] leading-[1.55] text-white/90">
+                {text}
+              </span>
+            </div>
+          ))}
+        </div>
+
         <Reveal static delay={200}>
-          <div className="font-mono text-xs uppercase tracking-[0.12em] text-white/50 drop-shadow-md">
+          <div className="font-mono text-xs uppercase tracking-[0.12em] text-white/50 drop-shadow-md max-sm:rounded-xl max-sm:bg-[#0a0e14]/80 max-sm:p-3 max-sm:text-white/70">
             Старт — 5 октября 2026 · финал — 15 июня 2027 · один урок
             в месяц · июль и август — каникулы · нажмите на урок, чтобы
             раскрыть
@@ -286,11 +309,14 @@ export default function SectionFour() {
         </Reveal>
 
         {/* Программа: пять колонок в строке, раскрытие в две */}
-        <div className="flex flex-col rounded-2xl bg-black/60 p-4 sm:bg-black/45 sm:p-6">
+        <div className="flex flex-col rounded-2xl bg-[#0a0e14]/95 p-4 backdrop-blur-md sm:bg-black/45 sm:p-6 sm:backdrop-blur-none">
           {LESSONS.map((lesson, i) => (
             <Reveal key={lesson.n} delay={100 + i * 50}>
-              <details className="group border-t border-white/15 first:border-t-0">
-                <summary className="flex items-baseline gap-3 py-4 sm:gap-4">
+              <details
+                {...(isMobile ? { name: 'lessons-m' } : {})}
+                className="group border-t border-white/15 first:border-t-0 max-sm:open:bg-[#45C1FF]/[0.04] max-sm:open:shadow-[inset_2px_0_0_#45C1FF]"
+              >
+                <summary className="flex cursor-pointer list-none items-baseline gap-3 py-4 max-sm:min-h-[60px] max-sm:items-center max-sm:px-2 sm:gap-4 [&::-webkit-details-marker]:hidden">
                   <span className="font-mono text-xs text-white/50">
                     [ {lesson.n} ]
                   </span>
@@ -336,7 +362,68 @@ export default function SectionFour() {
         </div>
 
         {/* Требования и безопасность — две равные колонки */}
-        <div className="grid gap-6 rounded-2xl border border-white/10 bg-[#0c1118]/90 p-5 sm:grid-cols-2 sm:gap-10 sm:p-6">
+        <div className="flex flex-col gap-3 sm:hidden">
+          <div className="font-mono text-xs uppercase tracking-[0.14em] text-white/60 drop-shadow-md">
+            Что понадобится для работы
+          </div>
+          <div className="overflow-hidden rounded-2xl border border-white/10 bg-[#0a0e14]/95 backdrop-blur-xl">
+            {[
+              {
+                title: 'Техника и подписки',
+                items: [
+                  'Компьютер',
+                  'Личный аккаунт ChatGPT с платным тарифом',
+                  'Программирование не требуется',
+                ],
+              },
+              {
+                title: 'Данные магазина',
+                items: [
+                  'МойСклад, 1С или аналогичная цифровая система учёта',
+                  'Идеального порядка в данных не требуется',
+                  'На занятиях данные приводятся к единому виду',
+                ],
+              },
+              {
+                title: 'Безопасность',
+                items: [
+                  'Подключения выполняются в аккаунтах владельца',
+                  'Каждому помощнику — только необходимый доступ',
+                  'Отдельно разбираются права доступа и работа с финансовыми и клиентскими данными',
+                ],
+              },
+            ].map((req) => (
+              <details
+                key={req.title}
+                name="reqs-m"
+                className="group border-t border-white/10 open:bg-[#45C1FF]/[0.04] first:border-t-0"
+              >
+                <summary className="flex min-h-[52px] cursor-pointer list-none items-center gap-3 px-5 py-3 [&::-webkit-details-marker]:hidden">
+                  <span className="flex-1 text-[16px] font-medium text-white">
+                    {req.title}
+                  </span>
+                  <Plus
+                    size={18}
+                    className="shrink-0 text-white/60 transition-transform duration-300 group-open:rotate-45"
+                  />
+                </summary>
+                <ul className="flex flex-col gap-2 px-5 pb-5">
+                  {req.items.map((item) => (
+                    <li
+                      key={item}
+                      className="flex gap-2 text-[16px] leading-[1.55] text-white/85"
+                    >
+                      <span className="text-[#7AD4FF]">·</span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </details>
+            ))}
+          </div>
+        </div>
+
+        <div className="hidden gap-6 rounded-2xl border border-white/10 bg-[#0c1118]/90 p-5 sm:grid sm:grid-cols-2 sm:gap-10 sm:p-6">
           <Reveal delay={80}>
             <div className="flex h-full flex-col gap-3">
               <div className="font-mono text-xs uppercase tracking-[0.14em] text-white/60">
@@ -371,13 +458,30 @@ export default function SectionFour() {
         </div>
 
         {/* Как устроено обучение — три колонки */}
-        <div className="flex flex-col gap-4 rounded-2xl border border-white/10 bg-[#0c1118]/90 p-5 sm:p-6">
+        <div className="flex flex-col gap-4 rounded-2xl border border-white/10 bg-[#0c1118]/90 p-5 max-sm:bg-[#0c1118]/95 max-sm:backdrop-blur-md sm:p-6">
           <Reveal delay={80}>
             <div className="font-mono text-xs uppercase tracking-[0.14em] text-white/60">
               Как устроено обучение
             </div>
           </Reveal>
-          <div className="grid gap-x-8 gap-y-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="flex flex-col gap-4 sm:hidden">
+            {[
+              ['9 месяцев', 'Один урок в месяц. Всё остальное время — внедрение инструмента в своём магазине.'],
+              ['30–60 минут', 'Живой прямой эфир. Записи — до 5 октября 2027, ровно год со старта.'],
+              ['чат с автором', 'Поддержка между уроками: на вопросы отвечает Мария лично.'],
+              ['без домашек', 'Внедрил — работает; не выходит — разбираем. Кураторство по урокам.'],
+            ].map(([label, text]) => (
+              <div key={label} className="flex flex-col gap-0.5">
+                <span className="font-mono text-[13px] text-[#7AD4FF]">
+                  {label}
+                </span>
+                <span className="text-[16px] leading-[1.55] text-white/85">
+                  {text}
+                </span>
+              </div>
+            ))}
+          </div>
+          <div className="hidden gap-x-8 gap-y-4 sm:grid sm:grid-cols-2 lg:grid-cols-3">
             <Reveal delay={120}>
               <div className="flex flex-col gap-1">
                 <span className="font-mono text-sm text-[#7AD4FF]">9 месяцев</span>
@@ -436,7 +540,7 @@ export default function SectionFour() {
         </div>
 
         {/* Итог курса — чек-лист, результат слева и запись справа */}
-        <div id="itog" className="flex flex-col gap-5 rounded-2xl border border-white/10 bg-[#0c1118]/90 p-5 sm:p-6">
+        <div id="itog" className="flex flex-col gap-5 rounded-2xl border border-white/10 bg-[#0c1118]/90 p-5 max-sm:bg-[#0c1118]/95 max-sm:backdrop-blur-md sm:p-6">
           <Reveal static delay={100}>
             <div className="flex flex-wrap items-baseline justify-between gap-2 border-b border-white/10 pb-4">
               <div className="font-display text-xl font-bold uppercase tracking-tight text-white">
@@ -453,7 +557,47 @@ export default function SectionFour() {
             </p>
           </Reveal>
 
-          <div className="grid gap-x-8 gap-y-3 sm:grid-cols-2">
+          <div className="overflow-hidden rounded-xl border border-white/10 sm:hidden">
+            {[
+              { title: 'Товар и закупка', items: OUTCOMES.slice(0, 4) },
+              { title: 'Деньги', items: OUTCOMES.slice(4, 6) },
+              { title: 'Продажи и клиенты', items: OUTCOMES.slice(6, 8) },
+              { title: 'Команда и процессы', items: OUTCOMES.slice(8, 11) },
+            ].map((groupItem) => (
+              <details
+                key={groupItem.title}
+                name="outcomes-m"
+                className="group border-t border-white/10 open:bg-[#45C1FF]/[0.04] first:border-t-0"
+              >
+                <summary className="flex min-h-[52px] cursor-pointer list-none items-center gap-3 px-4 py-3 [&::-webkit-details-marker]:hidden">
+                  <span className="flex-1 text-[16px] font-medium text-white">
+                    {groupItem.title}
+                  </span>
+                  <span className="shrink-0 font-mono text-[11px] uppercase text-[#7AD4FF]">
+                    {groupItem.items.length} инструмента
+                  </span>
+                  <Plus
+                    size={18}
+                    className="shrink-0 text-white/60 transition-transform duration-300 group-open:rotate-45"
+                  />
+                </summary>
+                <div className="flex flex-col gap-2.5 px-4 pb-4">
+                  {groupItem.items.map((item) => (
+                    <div key={item} className="flex items-center gap-3">
+                      <span className="flex h-5 w-5 flex-none items-center justify-center rounded border border-[#45C1FF]/60 font-mono text-[11px] leading-none text-[#7AD4FF]">
+                        ✓
+                      </span>
+                      <span className="text-[16px] leading-snug text-white/90">
+                        {item}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </details>
+            ))}
+          </div>
+
+          <div className="hidden gap-x-8 gap-y-3 sm:grid sm:grid-cols-2">
             {OUTCOMES.map((item, i) => (
               <Reveal key={i} delay={180 + i * 30}>
                 <div className="flex items-center gap-3">
@@ -471,7 +615,7 @@ export default function SectionFour() {
           {/* финал: результат слева, действие справа */}
           <div className="mt-2 grid gap-4 sm:grid-cols-2">
             <Reveal delay={280} className="h-full">
-              <div className="flex h-full flex-col gap-2 rounded-xl bg-[#45C1FF]/10 p-4 sm:p-5">
+              <div className="flex h-full flex-col gap-2 rounded-xl bg-[#45C1FF]/10 p-4 max-sm:border max-sm:border-[#45C1FF]/40 max-sm:bg-[#0d1a26] sm:p-5">
                 <div className="font-mono text-[11px] uppercase tracking-[0.14em] text-[#7AD4FF]">
                   Главный результат
                 </div>
@@ -484,18 +628,18 @@ export default function SectionFour() {
             </Reveal>
 
             <Reveal delay={340} className="h-full">
-              <div className="flex h-full flex-col items-start justify-center gap-3 rounded-xl border border-[#45C1FF]/40 bg-[#45C1FF]/5 p-4 sm:p-5">
+              <div className="flex h-full flex-col items-start justify-center gap-3 rounded-xl border border-[#45C1FF]/40 bg-[#45C1FF]/5 p-4 max-sm:bg-[#081420] sm:p-5">
                 <div className="font-mono text-xs uppercase tracking-[0.14em] text-[#7AD4FF]">
                   Старт — 5 октября 2026, 11:00 мск
                 </div>
-                <div className="font-mono text-xs uppercase tracking-[0.12em] text-white/60">
+                <div className="font-mono text-xs uppercase tracking-[0.12em] text-white/60 max-sm:text-white/80">
                   9 месяцев внедрения · записи до 5 октября 2027
                 </div>
                 <a
                   href={SIGNUP_URL}
                   target="_blank"
                   rel="noreferrer"
-                  className="mt-1 block w-full rounded-full bg-[#45C1FF] px-10 py-3.5 text-center font-mono text-xs font-semibold uppercase tracking-[0.15em] text-[#04131F] shadow-[0_0_16px_rgba(69,193,255,0.9),0_0_48px_rgba(69,193,255,0.45)] transition-all duration-300 hover:bg-[#7AD4FF] hover:shadow-[0_0_22px_rgba(122,212,255,1),0_0_64px_rgba(122,212,255,0.6)] sm:w-auto"
+                  className="mt-1 block w-full rounded-full bg-[#45C1FF] px-10 py-3.5 max-sm:flex max-sm:min-h-[56px] max-sm:items-center max-sm:justify-center text-center font-mono text-xs font-semibold uppercase tracking-[0.15em] text-[#04131F] shadow-[0_0_16px_rgba(69,193,255,0.9),0_0_48px_rgba(69,193,255,0.45)] transition-all duration-300 hover:bg-[#7AD4FF] hover:shadow-[0_0_22px_rgba(122,212,255,1),0_0_64px_rgba(122,212,255,0.6)] sm:w-auto"
                 >
                   Узнать стоимость и условия
                 </a>
@@ -503,7 +647,7 @@ export default function SectionFour() {
                   href={ASSISTANT_URL}
                   target="_blank"
                   rel="noreferrer"
-                  className="font-mono text-xs text-white/60 underline decoration-white/30 underline-offset-4 transition-colors hover:text-white"
+                  className="font-mono text-xs text-white/60 underline decoration-white/30 max-sm:text-white/75 underline-offset-4 transition-colors hover:text-white"
                 >
                   Остались вопросы? Спросите ассистента Марии
                 </a>

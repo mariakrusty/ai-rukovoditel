@@ -12,11 +12,18 @@
   font-display: swap;
 }
 
+/* мобильный «режим чтения»: абзацы — Onest; десктоп — ShareTechMono (утверждён) */
 body {
-  font-family: 'ShareTechMono', 'Onest', system-ui, monospace;
+  font-family: 'Onest', system-ui, sans-serif;
   background-color: #0a0a0a;
   color: #fff;
   -webkit-font-smoothing: antialiased;
+}
+
+@media (min-width: 640px) {
+  body {
+    font-family: 'ShareTechMono', 'Onest', system-ui, monospace;
+  }
 }
 
 ::selection {
