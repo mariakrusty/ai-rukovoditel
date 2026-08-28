@@ -13,7 +13,7 @@
 }
 
 body {
-  font-family: 'Onest', system-ui, sans-serif;
+  font-family: 'ShareTechMono', 'Onest', system-ui, monospace;
   background-color: #0a0a0a;
   color: #fff;
   -webkit-font-smoothing: antialiased;
