@@ -161,19 +161,19 @@ export default function SectionOne() {
     >
       <div className="relative flex flex-col gap-6 px-5 pb-14 pt-20 sm:flex-row sm:items-end sm:justify-between sm:gap-8 sm:px-8 sm:pt-0 md:px-12 md:pb-20">
         {/* Название продукта — первым, обещание — второй строкой */}
-        <h1 className="font-display max-w-2xl text-2xl font-bold uppercase leading-[1.16] tracking-tight text-white drop-shadow-lg sm:text-4xl md:text-5xl">
+        <h1 className="font-display max-w-3xl text-2xl font-bold uppercase leading-[1.16] tracking-tight text-white drop-shadow-lg sm:text-4xl md:text-5xl">
           <Reveal as="span" delay={100} className="block">
             AI-руководитель
           </Reveal>
-          <Reveal as="span" delay={220} className="block pl-5 sm:pl-12">
+          <Reveal as="span" delay={220} className="block pl-2 sm:pl-6">
             <span className="font-sans font-light normal-case italic tracking-normal">
               цветочного магазина
             </span>
           </Reveal>
-          <Reveal as="span" delay={340} className="hidden pl-8 sm:block sm:pl-20">
+          <Reveal as="span" delay={340} className="hidden pl-4 sm:block sm:pl-12">
             // Меньше времени
           </Reveal>
-          <Reveal as="span" delay={460} className="hidden pl-12 sm:block sm:pl-28">
+          <Reveal as="span" delay={460} className="hidden pl-6 sm:block sm:pl-16">
             Больше прибыли
           </Reveal>
           {/* компактное обещание — только на телефоне */}

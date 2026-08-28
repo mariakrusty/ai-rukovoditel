@@ -166,8 +166,8 @@ export default function SectionThree() {
 
         <Reveal delay={260}>
           <p className="max-w-2xl text-base leading-relaxed text-white drop-shadow-md sm:text-sm">
-            9 уроков = 10 готовых инструментов, объединённых
-            в 6 управленческих AI-ролей. Как они собираются — в программе ниже.
+            9 уроков закрывают 10 главных вопросов собственника — силами
+            шести AI-помощников. Каких — в программе ниже.
           </p>
         </Reveal>
       </div>

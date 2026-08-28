@@ -222,7 +222,7 @@ export default function SectionFour() {
                   <span className="absolute -right-1 top-1/2 h-2 w-2 -translate-y-1/2 rotate-45 border-r border-t border-[#45C1FF]" />
                 </div>
                 <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-white/70">
-                  объединяются в 6 AI-ролей
+                  закрывают 6 AI-помощников
                 </span>
               </div>
             </Reveal>
@@ -233,7 +233,7 @@ export default function SectionFour() {
                   10
                 </span>
                 <span className="font-mono text-xs uppercase tracking-[0.2em] text-white/70">
-                  инструментов
+                  вопросов собственника
                 </span>
               </div>
             </Reveal>
@@ -242,7 +242,7 @@ export default function SectionFour() {
           {/* мобильная версия связки */}
           <Reveal delay={220} className="sm:hidden">
             <div className="font-mono text-[11px] uppercase tracking-[0.16em] text-white/70">
-              → объединяются в 6 AI-ролей
+              → закрывают 6 AI-помощников
             </div>
           </Reveal>
 
@@ -256,8 +256,9 @@ export default function SectionFour() {
             </Reveal>
             <Reveal delay={380}>
               <p className="max-w-sm text-base leading-relaxed text-white drop-shadow-md sm:text-right sm:text-sm">
-                Финансовый урок создаёт сразу два инструмента: финансового
-                аналитика и казначея.
+                Каждый урок начинается с вопроса собственника. Финансовый
+                закрывает сразу два: сколько заработали — и хватит ли
+                на платежи.
               </p>
             </Reveal>
           </div>
