@@ -29,7 +29,8 @@ export default function SectionOne() {
           {/* одна короткая фраза о результате — только на телефоне */}
           <Reveal as="span" delay={340} className="mt-4 block sm:hidden">
             <span className="font-mono text-[13px] font-normal uppercase tracking-[0.12em] text-[#7AD4FF]">
-              Меньше ручных таблиц · больше решений по прибыли
+              <span className="block">Меньше ручных таблиц ·</span>
+              <span className="block">больше решений по прибыли</span>
             </span>
           </Reveal>
         </h1>
