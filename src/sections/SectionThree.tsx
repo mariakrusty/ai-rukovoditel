@@ -70,14 +70,14 @@ export default function SectionThree() {
                 — Как тратить меньше времени?
               </div>
             </Reveal>
-            <h2 className="font-display max-w-xl text-[clamp(40px,10.5vw,44px)] font-bold uppercase leading-[1.05] tracking-tight text-white drop-shadow-lg sm:text-5xl lg:text-[64px] lg:leading-[1.04]">
+            <h2 className="font-display max-w-xl text-[clamp(34px,9.9vw,40px)] font-bold uppercase leading-[1.05] tracking-tight text-white drop-shadow-lg sm:text-5xl lg:text-[64px] lg:leading-[1.04]">
               <Reveal static as="span" delay={100} className="block">
                 Шесть{' '}
                 <span className="font-sans font-light normal-case italic tracking-normal">
                   своих
                 </span>
               </Reveal>
-              <Reveal static as="span" delay={220} className="block pl-8 sm:pl-16">
+              <Reveal static as="span" delay={220} className="block sm:pl-16">
                 Помощников
               </Reveal>
             </h2>
@@ -122,7 +122,7 @@ export default function SectionThree() {
 
         {/* мобильный аккордеон помощников */}
         <Reveal static className="sm:hidden">
-          <div className="overflow-hidden rounded-[20px] bg-[#070c13]/[0.94] backdrop-blur-xl">
+          <div className="overflow-hidden rounded-[20px] bg-[#070c13]/[0.94]">
             {CREW.map((member, i) => (
               <details
                 key={member.n}
@@ -130,7 +130,7 @@ export default function SectionThree() {
                 open={i === 0}
                 className="group border-t border-white/12 open:bg-[#45C1FF]/[0.04] first:border-t-0"
               >
-                <summary className="flex min-h-[76px] cursor-pointer list-none items-center gap-3 px-6 py-4 [&::-webkit-details-marker]:hidden">
+                <summary className="flex min-h-[76px] cursor-pointer list-none outline-none items-center gap-3 px-6 py-4 [&::-webkit-details-marker]:hidden">
                   <span className="flex-1">
                     <span className="block text-[20px] font-medium leading-snug text-white/96">
                       {member.name}
@@ -239,7 +239,7 @@ export default function SectionThree() {
 
         {/* Утро AI-руководителя — редакционная сцена */}
         <Reveal static>
-          <div className="flex flex-col gap-6 rounded-[20px] bg-[#070c13]/[0.94] p-6 backdrop-blur-xl sm:gap-8 sm:p-8">
+          <div className="flex flex-col gap-6 rounded-[20px] bg-[#070c13]/[0.94] p-6 sm:gap-8 sm:p-8">
             <div className="font-mono text-xs uppercase tracking-[0.14em] text-white/58">
               Как начинается утро AI-руководителя
             </div>

@@ -308,14 +308,14 @@ export default function SectionFour() {
         </Reveal>
 
         {/* Программа: пять колонок в строке, раскрытие в две */}
-        <div className="flex flex-col rounded-[20px] bg-[#070c13]/[0.94] p-4 backdrop-blur-md sm:p-6">
+        <div className="flex flex-col rounded-[20px] bg-[#070c13]/[0.94] p-4 sm:p-6">
           {LESSONS.map((lesson) => (
             <Reveal static key={lesson.n}>
               <details
                 {...(isMobile ? { name: 'lessons-m' } : {})}
-                className="group border-t border-white/15 first:border-t-0 max-sm:open:bg-[#45C1FF]/[0.04] max-sm:open:shadow-[inset_2px_0_0_#45C1FF]"
+                className="group border-t border-white/15 first:border-t-0 open:bg-[#45C1FF]/[0.04] open:shadow-[inset_2px_0_0_#45C1FF]"
               >
-                <summary className="flex min-h-[64px] cursor-pointer list-none items-center gap-3 py-4 max-sm:min-h-[68px] max-sm:px-2 sm:gap-4 [&::-webkit-details-marker]:hidden">
+                <summary className="flex min-h-[64px] cursor-pointer list-none outline-none items-center gap-3 py-4 max-sm:min-h-[68px] max-sm:px-2 sm:gap-4 [&::-webkit-details-marker]:hidden">
                   <span className="font-mono text-[13px] text-white/58">
                     [ {lesson.n} ]
                   </span>
@@ -365,7 +365,7 @@ export default function SectionFour() {
           <div className="font-mono text-xs uppercase tracking-[0.14em] text-white/60 drop-shadow-md">
             Что понадобится для работы
           </div>
-          <div className="overflow-hidden rounded-[20px] bg-[#070c13]/[0.94] backdrop-blur-xl">
+          <div className="overflow-hidden rounded-[20px] bg-[#070c13]/[0.94]">
             {[
               {
                 title: 'Техника и подписки',
@@ -397,7 +397,7 @@ export default function SectionFour() {
                 name="reqs-m"
                 className="group border-t border-white/10 open:bg-[#45C1FF]/[0.04] first:border-t-0"
               >
-                <summary className="flex min-h-[60px] cursor-pointer list-none items-center gap-3 px-6 py-3 [&::-webkit-details-marker]:hidden">
+                <summary className="flex min-h-[60px] cursor-pointer list-none outline-none items-center gap-3 px-6 py-3 [&::-webkit-details-marker]:hidden">
                   <span className="flex-1 text-[18px] font-medium text-white/96">
                     {req.title}
                   </span>
@@ -457,7 +457,7 @@ export default function SectionFour() {
         </div>
 
         {/* Как устроено обучение: три главных показателя + условия */}
-        <div className="flex flex-col gap-6 rounded-[20px] bg-[#070c13]/[0.94] p-6 backdrop-blur-md sm:gap-8 sm:p-[30px]">
+        <div className="flex flex-col gap-6 rounded-[20px] bg-[#070c13]/[0.94] p-6 sm:gap-8 sm:p-[30px]">
           <Reveal static>
             <div className="font-mono text-xs uppercase tracking-[0.14em] text-white/60">
               Как устроено обучение
@@ -507,7 +507,7 @@ export default function SectionFour() {
         </div>
 
         {/* Итог курса: крупный тезис + четыре группы инструментов */}
-        <div id="itog" className="flex flex-col gap-6 rounded-[20px] bg-[#070c13]/[0.94] p-6 backdrop-blur-md sm:p-[30px]">
+        <div id="itog" className="flex flex-col gap-6 rounded-[20px] bg-[#070c13]/[0.94] p-6 sm:p-[30px]">
           <Reveal static>
             <div className="flex flex-wrap items-baseline justify-between gap-2 border-b border-white/12 pb-4">
               <div className="font-mono text-xs uppercase tracking-[0.14em] text-white/60">
@@ -536,7 +536,7 @@ export default function SectionFour() {
                 name="outcomes-m"
                 className="group border-t border-white/12 open:bg-[#45C1FF]/[0.04] first:border-t-0"
               >
-                <summary className="flex min-h-[60px] cursor-pointer list-none items-center gap-3 px-5 py-4 [&::-webkit-details-marker]:hidden sm:px-6">
+                <summary className="flex min-h-[60px] cursor-pointer list-none outline-none items-center gap-3 px-5 py-4 [&::-webkit-details-marker]:hidden sm:px-6">
                   <span className="flex-1 text-[20px] font-medium text-white/96 sm:text-[21px]">
                     {groupItem.title}
                   </span>

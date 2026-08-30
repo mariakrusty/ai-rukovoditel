@@ -131,7 +131,7 @@ export default function SectionTwo() {
         </Reveal>
 
         <Reveal static>
-          <div className="overflow-hidden rounded-[20px] bg-[#070c13]/[0.94] backdrop-blur-xl">
+          <div className="overflow-hidden rounded-[20px] bg-[#070c13]/[0.94]">
             {CASES.map((c, i) => (
               <details
                 key={i}
@@ -139,7 +139,7 @@ export default function SectionTwo() {
                 open={i === 0}
                 className="group border-t border-white/12 open:bg-[#45C1FF]/[0.04] first:border-t-0"
               >
-                <summary className="flex min-h-[72px] cursor-pointer list-none items-center gap-3 px-6 py-4 [&::-webkit-details-marker]:hidden">
+                <summary className="flex min-h-[72px] cursor-pointer list-none outline-none items-center gap-3 px-6 py-4 [&::-webkit-details-marker]:hidden">
                   <span className="font-mono text-xs text-white/58">
                     [ 0{i + 1} ]
                   </span>
@@ -208,7 +208,7 @@ export default function SectionTwo() {
                 key={i}
                 type="button"
                 onClick={() => setActive(i)}
-                className={`flex min-h-[64px] items-center gap-3 border-t border-white/12 px-6 py-4 text-left transition-colors duration-200 first:border-t-0 ${
+                className={`flex min-h-[64px] items-center gap-3 border-t border-white/12 px-6 py-4 text-left outline-none transition-colors duration-200 first:border-t-0 ${
                   active === i
                     ? 'bg-[#45C1FF]/[0.07] shadow-[inset_2px_0_0_#45C1FF]'
                     : 'hover:bg-white/[0.03]'
