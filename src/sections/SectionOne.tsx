@@ -15,7 +15,7 @@ export default function SectionOne() {
           <Reveal as="span" delay={100} className="block">
             AI-руководитель
           </Reveal>
-          <Reveal as="span" delay={220} className="block pl-2 sm:pl-6">
+          <Reveal as="span" delay={220} className="block sm:pl-6">
             <span className="font-sans font-light normal-case italic tracking-normal">
               цветочного магазина
             </span>
@@ -29,7 +29,7 @@ export default function SectionOne() {
           {/* одна короткая фраза о результате — только на телефоне */}
           <Reveal as="span" delay={340} className="mt-4 block sm:hidden">
             <span className="font-mono text-[13px] font-normal uppercase tracking-[0.12em] text-[#7AD4FF]">
-              <span className="block">Меньше ручных таблиц ·</span>
+              <span className="block">Меньше ручных таблиц</span>
               <span className="block">больше решений по прибыли</span>
             </span>
           </Reveal>
