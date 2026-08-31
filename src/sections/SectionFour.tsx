@@ -632,7 +632,7 @@ export default function SectionFour() {
                 rel="noreferrer"
                 className="flex w-full min-h-[56px] shrink-0 items-center justify-center rounded-full border border-[#45C1FF]/60 px-10 py-3.5 text-center font-mono text-[13px] font-semibold uppercase tracking-[0.15em] text-[#7AD4FF] transition-all duration-300 hover:border-[#7AD4FF] hover:text-white hover:shadow-[0_0_22px_rgba(122,212,255,0.5)] sm:w-auto"
               >
-                {'AI-штаб под ключ →'}
+                {'AI-команда под ключ →'}
               </a>
             </div>
           </Reveal>
