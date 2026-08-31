@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://mariakrusty.github.io/ai-rukovoditel/sitemap.xml
+Sitemap: https://mfandreeva.ru/sitemap.xml
