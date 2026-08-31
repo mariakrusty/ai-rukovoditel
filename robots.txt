@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mariakrusty.github.io/ai-rukovoditel/sitemap.xml
