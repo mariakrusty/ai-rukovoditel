@@ -609,6 +609,33 @@ export default function SectionFour() {
               </div>
             </Reveal>
           </div>
+
+          {/* другой формат: внедрение под ключ */}
+          <Reveal static delay={400}>
+            <div className="mt-4 flex flex-col items-start gap-4 rounded-2xl border border-white/10 bg-[#0d1a26] p-6 sm:flex-row sm:items-center sm:justify-between sm:p-[30px]">
+              <div className="flex flex-col gap-2">
+                <div className="font-mono text-xs uppercase tracking-[0.14em] text-white/60">
+                  Другой формат
+                </div>
+                <div className="text-[20px] font-semibold uppercase leading-[1.15] text-white sm:text-[22px]">
+                  Не хотите изучать самостоятельно?
+                </div>
+                <p className="max-w-[54ch] text-[16px] leading-[26px] text-white/85 sm:text-[17px] sm:leading-[27px]">
+                  Закажите внедрение под ключ: Мария подключает данные вашего
+                  магазина, настраивает AI-помощников и передаёт готовую
+                  систему управления.
+                </p>
+              </div>
+              <a
+                href="https://mfandreeva.ru/ai-shtab-pod-klyuch/"
+                target="_blank"
+                rel="noreferrer"
+                className="flex w-full min-h-[56px] shrink-0 items-center justify-center rounded-full border border-[#45C1FF]/60 px-10 py-3.5 text-center font-mono text-[13px] font-semibold uppercase tracking-[0.15em] text-[#7AD4FF] transition-all duration-300 hover:border-[#7AD4FF] hover:text-white hover:shadow-[0_0_22px_rgba(122,212,255,0.5)] sm:w-auto"
+              >
+                {'AI-штаб под ключ →'}
+              </a>
+            </div>
+          </Reveal>
         </div>
       </div>
 
