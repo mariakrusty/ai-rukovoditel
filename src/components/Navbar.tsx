@@ -20,8 +20,9 @@ export default function Navbar() {
       <div className="absolute left-5 top-5 z-50 sm:left-8 sm:top-7 md:left-12">
         <Reveal>
           <a
-            href="#main"
-            className="font-mono text-base font-medium tracking-tight text-white drop-shadow-md sm:text-xl md:text-2xl"
+            href="https://mfandreeva.ru/"
+            title="На главный сайт Марии Андреевой"
+            className="font-mono text-base font-medium tracking-tight text-white drop-shadow-md transition-colors hover:text-[#7AD4FF] sm:text-xl md:text-2xl"
           >
             (M_ANDREEVA)
           </a>

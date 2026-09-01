@@ -655,9 +655,12 @@ export default function SectionFour() {
         delay={980}
         className="absolute bottom-5 right-5 sm:bottom-6 sm:right-8 md:right-12"
       >
-        <span className="font-mono text-xs text-white/58">
-          Мария Андреева · 2026
-        </span>
+        <a
+          href="https://mfandreeva.ru/"
+          className="font-mono text-xs text-white/58 underline decoration-white/25 underline-offset-4 transition-colors hover:text-white"
+        >
+          Мария Андреева · mfandreeva.ru · 2026
+        </a>
       </Reveal>
     </section>
   )
