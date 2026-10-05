@@ -1,7 +1,7 @@
 import { Plus, Share2 } from 'lucide-react'
 import Reveal from '../components/Reveal'
 import useIsMobile from '../useIsMobile'
-import { ASSISTANT_URL, SIGNUP_URL } from '../config'
+import { ASSISTANT_URL } from '../config'
 
 type Lesson = {
   n: string
@@ -590,14 +590,14 @@ export default function SectionFour() {
                 <div className="font-mono text-[13px] uppercase tracking-[0.12em] text-white/76">
                   9 месяцев внедрения · записи до 5 октября 2027
                 </div>
-                <a
-                  href={SIGNUP_URL}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="mt-1 flex w-full min-h-[56px] items-center justify-center rounded-full bg-[#45C1FF] px-10 py-3.5 text-center font-mono text-[13px] font-semibold uppercase tracking-[0.15em] text-[#04131F] shadow-[0_0_16px_rgba(69,193,255,0.9),0_0_48px_rgba(69,193,255,0.45)] transition-all duration-300 hover:bg-[#7AD4FF] hover:shadow-[0_0_22px_rgba(122,212,255,1),0_0_64px_rgba(122,212,255,0.6)] sm:w-auto"
+                {/* поток стартовал 05.10.2026 — запись закрыта, ссылки на оплату нет */}
+                <div
+                  role="status"
+                  aria-disabled="true"
+                  className="mt-1 flex w-full min-h-[56px] cursor-default select-none items-center justify-center rounded-full border border-white/25 bg-white/10 px-10 py-3.5 text-center font-mono text-[13px] font-semibold uppercase tracking-[0.15em] text-white/70 sm:w-auto"
                 >
-                  Узнать стоимость и условия
-                </a>
+                  Запись закрыта
+                </div>
                 <a
                   href={ASSISTANT_URL}
                   target="_blank"

@@ -1,7 +1,6 @@
 import { ArrowDown, Share2 } from 'lucide-react'
 import Reveal from '../components/Reveal'
 import AssistantFeed from '../components/AssistantFeed'
-import { SIGNUP_URL } from '../config'
 
 export default function SectionOne() {
   return (
@@ -62,14 +61,14 @@ export default function SectionOne() {
           </Reveal>
 
           <Reveal delay={600} className="order-4 w-full sm:order-none">
-            <a
-              href={SIGNUP_URL}
-              target="_blank"
-              rel="noreferrer"
-              className="mb-6 block w-full rounded-full bg-[#45C1FF] text-[#04131F] shadow-[0_0_16px_rgba(69,193,255,0.9),0_0_48px_rgba(69,193,255,0.45)] hover:bg-[#7AD4FF] hover:shadow-[0_0_22px_rgba(122,212,255,1),0_0_64px_rgba(122,212,255,0.6)] px-8 py-3.5 text-center font-mono text-xs font-semibold uppercase tracking-[0.15em] transition-all duration-300 sm:mb-7 short:mb-2"
+            {/* поток стартовал 05.10.2026 — запись закрыта, ссылки на оплату нет */}
+            <div
+              role="status"
+              aria-disabled="true"
+              className="mb-6 block w-full cursor-default select-none rounded-full border border-white/25 bg-white/10 px-8 py-3.5 text-center font-mono text-xs font-semibold uppercase tracking-[0.15em] text-white/70 backdrop-blur-0 sm:mb-7 short:mb-2"
             >
-              Записаться на курс
-            </a>
+              Запись закрыта
+            </div>
             <div className="-mt-4 mb-2 text-center font-mono text-[11px] uppercase tracking-[0.14em] text-[#7AD4FF] drop-shadow-md sm:-mt-5 sm:mb-6 short:-mt-1 short:mb-3">
               [ старт — 5 октября 2026, 11:00 мск ]
             </div>
